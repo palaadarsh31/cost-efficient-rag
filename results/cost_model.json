@@ -1,0 +1,267 @@
+{
+  "assumptions": {
+    "dim": 384,
+    "chunk_text_bytes": 1383,
+    "sqlite_bytes_per_chunk": 6100,
+    "pinecone_id_bytes": 20,
+    "pinecone_metadata_bytes": 1583,
+    "queries_per_month": 100000,
+    "monthly_churn": 0.1,
+    "upsert_batch": 100,
+    "aws": {
+      "t4g.small": {
+        "usd_hour": 0.0168,
+        "vcpu": 2,
+        "ram_gb": 2
+      },
+      "t4g.medium": {
+        "usd_hour": 0.0336,
+        "vcpu": 2,
+        "ram_gb": 4
+      },
+      "c7g.2xlarge": {
+        "usd_hour": 0.289,
+        "vcpu": 8,
+        "ram_gb": 16
+      },
+      "r7g.xlarge": {
+        "usd_hour": 0.2142,
+        "vcpu": 4,
+        "ram_gb": 32
+      },
+      "gp3_usd_gb_month": 0.08,
+      "s3_usd_gb_month": 0.023
+    },
+    "pinecone": {
+      "standard_minimum_usd": 50.0,
+      "storage_usd_gb_month": 0.33,
+      "read_unit_usd_per_m": 16.0,
+      "write_unit_usd_per_m": 4.0,
+      "ru_per_gb_namespace": 1.0,
+      "ru_min_per_query": 0.25,
+      "wu_per_kb": 1.0,
+      "pod_usd_hour": {
+        "s1.x1": 0.111,
+        "p1.x1": 0.111
+      },
+      "pod_capacity_768d": {
+        "s1.x1": 5000000,
+        "p1.x1": 1000000
+      }
+    }
+  },
+  "self_hosted_plan": {
+    "100000": {
+      "instance": "t4g.small",
+      "shards": 1,
+      "search": "float32 brute force"
+    },
+    "1000000": {
+      "instance": "t4g.medium",
+      "shards": 1,
+      "search": "binary + float32 re-score"
+    },
+    "10000000": {
+      "instance": "c7g.2xlarge",
+      "shards": 8,
+      "search": "binary + re-score, 8 shards in parallel"
+    }
+  },
+  "rows": [
+    {
+      "vectors": 100000,
+      "self_hosted": {
+        "plan": {
+          "instance": "t4g.small",
+          "shards": 1,
+          "search": "float32 brute force"
+        },
+        "db_gb": 0.61,
+        "disk_gb": 20,
+        "compute": 12.264,
+        "disk": 1.6,
+        "backup": 0.014029999999999999,
+        "total": 13.878029999999999
+      },
+      "pinecone_serverless": {
+        "index_gb": 0.3139,
+        "ru_per_query": 0.3139,
+        "storage": 0.10358700000000001,
+        "reads": 0.50224,
+        "writes": 0.12556,
+        "usage": 0.731387,
+        "total": 50.0
+      },
+      "pinecone_s1": {
+        "pod": "s1.x1",
+        "pods": 1,
+        "capacity_per_pod": 4893278,
+        "total": 81.03
+      },
+      "pinecone_p1": {
+        "pod": "p1.x1",
+        "pods": 1,
+        "capacity_per_pod": 978655,
+        "total": 81.03
+      }
+    },
+    {
+      "vectors": 1000000,
+      "self_hosted": {
+        "plan": {
+          "instance": "t4g.medium",
+          "shards": 1,
+          "search": "binary + float32 re-score"
+        },
+        "db_gb": 6.1,
+        "disk_gb": 20,
+        "compute": 24.528,
+        "disk": 1.6,
+        "backup": 0.14029999999999998,
+        "total": 26.2683
+      },
+      "pinecone_serverless": {
+        "index_gb": 3.139,
+        "ru_per_query": 3.139,
+        "storage": 1.03587,
+        "reads": 5.0224,
+        "writes": 1.2556,
+        "usage": 7.3138700000000005,
+        "total": 50.0
+      },
+      "pinecone_s1": {
+        "pod": "s1.x1",
+        "pods": 1,
+        "capacity_per_pod": 4893278,
+        "total": 81.03
+      },
+      "pinecone_p1": {
+        "pod": "p1.x1",
+        "pods": 2,
+        "capacity_per_pod": 978655,
+        "total": 162.06
+      }
+    },
+    {
+      "vectors": 10000000,
+      "self_hosted": {
+        "plan": {
+          "instance": "c7g.2xlarge",
+          "shards": 8,
+          "search": "binary + re-score, 8 shards in parallel"
+        },
+        "db_gb": 61.0,
+        "disk_gb": 106,
+        "compute": 210.97,
+        "disk": 8.48,
+        "backup": 1.403,
+        "total": 220.85299999999998
+      },
+      "pinecone_serverless": {
+        "index_gb": 31.39,
+        "ru_per_query": 31.39,
+        "storage": 10.3587,
+        "reads": 50.224,
+        "writes": 12.556,
+        "usage": 73.1387,
+        "total": 73.1387
+      },
+      "pinecone_s1": {
+        "pod": "s1.x1",
+        "pods": 3,
+        "capacity_per_pod": 4893278,
+        "total": 243.09
+      },
+      "pinecone_p1": {
+        "pod": "p1.x1",
+        "pods": 11,
+        "capacity_per_pod": 978655,
+        "total": 891.33
+      }
+    }
+  ],
+  "bench_latency": {
+    "100000": {
+      "n": 100000,
+      "dim": 384,
+      "queries": 100,
+      "float32": {
+        "insert_seconds": 1.9909471810001378,
+        "inserts_per_second": 50227.3495521693,
+        "file_mb": 158.347264,
+        "p50_ms": 86.63734100014153,
+        "p95_ms": 144.31186675010395,
+        "mean_ms": 92.17739389003327,
+        "recall_at_5": 1.0
+      },
+      "int8": {
+        "insert_seconds": 0.947043252000185,
+        "inserts_per_second": 105591.79825081576,
+        "file_mb": 40.886272,
+        "p50_ms": 56.67995600015274,
+        "p95_ms": 68.9692165001361,
+        "mean_ms": 59.27649839000878,
+        "recall_at_5": 0.97
+      },
+      "bit": {
+        "insert_seconds": 1.4926887069996155,
+        "inserts_per_second": 66993.2046320665,
+        "file_mb": 212.54144,
+        "p50_ms": 14.487439500044275,
+        "p95_ms": 22.62321354969572,
+        "mean_ms": 16.199267209972277,
+        "recall_at_5": 0.998,
+        "rescore_candidates": 100,
+        "hamming_p50_ms": 13.90259949994288,
+        "bit_vectors_mb": 4.8,
+        "note": "file_mb includes the float32 blobs used for re-scoring"
+      },
+      "float32_filtered": {
+        "p50_ms": 44.44188600018606,
+        "p95_ms": 59.47809000006145,
+        "mean_ms": 47.01868209001077
+      }
+    },
+    "1000000": {
+      "n": 1000000,
+      "dim": 384,
+      "queries": 100,
+      "float32": {
+        "insert_seconds": 21.382255454999722,
+        "inserts_per_second": 46767.75104967583,
+        "file_mb": 1578.668032,
+        "p50_ms": 917.4680115002047,
+        "p95_ms": 1134.2051308501366,
+        "mean_ms": 939.2321713499952,
+        "recall_at_5": 1.0
+      },
+      "int8": {
+        "insert_seconds": 11.489748440000312,
+        "inserts_per_second": 87034.10742384999,
+        "file_mb": 408.076288,
+        "p50_ms": 603.8222610000048,
+        "p95_ms": 703.5157165498504,
+        "mean_ms": 613.0076803499787,
+        "recall_at_5": 0.9560000000000001
+      },
+      "bit": {
+        "insert_seconds": 16.352885367,
+        "inserts_per_second": 61151.28783437769,
+        "file_mb": 2125.14816,
+        "p50_ms": 147.47645950001242,
+        "p95_ms": 221.4195606998146,
+        "mean_ms": 159.40342492998752,
+        "recall_at_5": 1.0,
+        "rescore_candidates": 100,
+        "hamming_p50_ms": 142.03165300000364,
+        "bit_vectors_mb": 48.0,
+        "note": "file_mb includes the float32 blobs used for re-scoring"
+      },
+      "float32_filtered": {
+        "p50_ms": 482.910238499926,
+        "p95_ms": 552.7158633503632,
+        "mean_ms": 484.3651470899703
+      }
+    }
+  }
+}

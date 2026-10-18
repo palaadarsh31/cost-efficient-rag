@@ -1,0 +1,13 @@
+$ python -m docqa query "What is the maximum time to respond to a code review request?"
+2026-10-18 02:31:49,867 INFO docqa.query: query c013089160e6 | retrieval 16.5 ms | llm 778.1 ms | total 794.8 ms | chunks 5 | top_sim 0.817 | tokens 2336 in / 66 out | cited [1, 3]
+
+Q: What is the maximum time to respond to a code review request?
+A: One business day is the maximum time it should take to respond to a code review request [1]. The guidance also says a reviewer should not interrupt a focused task to respond, but should wait for a natural break point [1][3].
+
+Sources:
+  [1] Speed of Code Reviews | eng-practices (code-review/reviewer-speed.html, Speed of Code Reviews > How Fast Should Code Reviews Be?) sim=0.817
+  [3] Speed of Code Reviews | eng-practices (code-review/reviewer-speed.html, Speed of Code Reviews > Fast Responses) sim=0.773
+
+---
+retrieval 16.5 ms (embed 9.2, search 7.1, fetch 0.3) | llm 778.1 ms | total 794.8 ms
+chunks 5 | top similarity 0.817 | tokens 2,336 prompt + 66 completion = 2,402

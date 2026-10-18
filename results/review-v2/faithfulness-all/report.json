@@ -1,0 +1,23 @@
+{
+  "kind": "LIVE_FROZEN_ANSWER_FAITHFULNESS",
+  "status": "complete",
+  "generated_at_utc": "2026-10-18T06:03:50.811968+00:00",
+  "cases": 25,
+  "valid": 25,
+  "mean_faithfulness": 1.0,
+  "historical_mean_on_same_answers": 0.98,
+  "usage": {
+    "actual_requests": 25,
+    "failed_requests": 0,
+    "prompt_tokens": 70692,
+    "completion_tokens": 4062,
+    "by_role": {
+      "judge": {
+        "requests": 25,
+        "prompt_tokens": 70692,
+        "completion_tokens": 4062
+      }
+    }
+  },
+  "scope": "Faithfulness only: all saved generated answers and exact passage texts frozen. Titles, paths, sections and pages are reconstructed with verified chunk content IDs. Not a new end-to-end generation run; relevance and correctness are not rerun."
+}

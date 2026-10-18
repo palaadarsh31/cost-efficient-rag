@@ -1,0 +1,23 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+.pytest_cache/
+*.egg-info/
+build/
+dist/
+
+# local index + logs (rebuilt by `python -m docqa ingest`)
+data/index/
+logs/
+.cache/
+results/.work/
+
+# offline smoke runs of the eval harness (numbers are meaningless)
+results/offline-smoke/
+
+# Live judge prompts/responses may contain confidential or generated data.
+# Review and explicitly decide what to disclose; do not commit by default.
+results/problem2/live*/
+results/problem2/claude*/

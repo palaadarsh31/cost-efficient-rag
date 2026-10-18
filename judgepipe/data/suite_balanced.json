@@ -1,0 +1,266 @@
+{
+  "suite_name": "technical_documentation_reference_pairs_balanced_orientation_v1",
+  "schema_version": "1.0",
+  "derived_from": {
+    "suite": "judgepipe/data/suite.json",
+    "sha256": "FDFFBF6F0116C9B57BB80A8AB99479542BEE0E707226C6D0C27AF977EC719713",
+    "method": "Deterministically exchange model_output and candidate_b for the listed seven reference-A cases; remap gold A to B. All references, contexts, questions, criteria and probe labels remain unchanged. Every ID gains _balanced.",
+    "swapped_source_case_ids": [
+      "config_store",
+      "pushgateway_up",
+      "stale_metrics",
+      "filler_config",
+      "filler_push",
+      "wrong_confidence_2",
+      "format_constraint"
+    ],
+    "expected_label_counts": {
+      "A": 7,
+      "B": 7,
+      "tie": 2
+    }
+  },
+  "cases": [
+    {
+      "id": "review_speed_balanced",
+      "input": "What is the maximum response time for a code review request?",
+      "system_prompt": "Answer from the supplied technical documentation only. Be accurate and concise.",
+      "model_output": "One business day is the maximum response time.",
+      "candidate_b": "The maximum response time is five business days.",
+      "expected_output": "One business day.",
+      "context": "One business day is the maximum time it should take to respond to a code review request.",
+      "criteria": [
+        "Do not add facts unsupported by the supplied documentation."
+      ],
+      "gold_winner": "A",
+      "probe": "ordinary",
+      "source_case_id": "review_speed"
+    },
+    {
+      "id": "config_store_balanced",
+      "input": "Where should a twelve-factor application keep deployment configuration?",
+      "system_prompt": "Answer from the supplied technical documentation only. Be accurate and concise.",
+      "model_output": "Hardcode deployment settings in the source repository.",
+      "candidate_b": "Store config in environment variables rather than in source code.",
+      "expected_output": "In environment variables.",
+      "context": "The twelve-factor app stores config in environment variables. Config must be strictly separated from code.",
+      "criteria": [
+        "Do not add facts unsupported by the supplied documentation."
+      ],
+      "gold_winner": "B",
+      "probe": "ordinary",
+      "source_case_id": "config_store"
+    },
+    {
+      "id": "config_secret_balanced",
+      "input": "Should credentials be committed to a Git repository?",
+      "system_prompt": "Answer from the supplied technical documentation only. Be accurate and concise.",
+      "model_output": "No. Store credentials outside the codebase, typically as environment variables.",
+      "candidate_b": "Yes. Keep them in source control so they are backed up.",
+      "expected_output": "No.",
+      "context": "A codebase could be made open source without compromising credentials when config is correctly separated.",
+      "criteria": [
+        "Do not add facts unsupported by the supplied documentation."
+      ],
+      "gold_winner": "A",
+      "probe": "confidently_wrong",
+      "source_case_id": "config_secret"
+    },
+    {
+      "id": "pushgateway_balanced",
+      "input": "What is the usual valid use case for the Prometheus Pushgateway?",
+      "system_prompt": "Answer from the supplied technical documentation only. Be accurate and concise.",
+      "model_output": "Capturing the outcome of a service-level batch job.",
+      "candidate_b": "Collecting metrics from every long-running web server and replacing Prometheus scraping.",
+      "expected_output": "Capturing the outcome of a service-level batch job.",
+      "context": "The usual valid use case is capturing the outcome of a service-level batch job.",
+      "criteria": [
+        "Do not add facts unsupported by the supplied documentation."
+      ],
+      "gold_winner": "A",
+      "probe": "ordinary",
+      "source_case_id": "pushgateway"
+    },
+    {
+      "id": "pushgateway_up_balanced",
+      "input": "Does using Pushgateway preserve automatic instance health detection via the up metric?",
+      "system_prompt": "Answer from the supplied technical documentation only. Be accurate and concise.",
+      "model_output": "Yes, the up metric always tracks every instance that pushes data.",
+      "candidate_b": "No. Using it loses automatic instance health monitoring via the up metric.",
+      "expected_output": "No.",
+      "context": "You lose Prometheus automatic instance health monitoring via the up metric, generated on scrape.",
+      "criteria": [
+        "Do not add facts unsupported by the supplied documentation."
+      ],
+      "gold_winner": "B",
+      "probe": "confidently_wrong",
+      "source_case_id": "pushgateway_up"
+    },
+    {
+      "id": "stale_metrics_balanced",
+      "input": "What happens to a pushed series if it is not deleted from Pushgateway?",
+      "system_prompt": "Answer from the supplied technical documentation only. Be accurate and concise.",
+      "model_output": "It disappears automatically as soon as the originating process exits.",
+      "candidate_b": "It remains exposed until deleted manually or through the API.",
+      "expected_output": "It remains unless deleted.",
+      "context": "Pushgateway never forgets pushed series unless deleted through the API.",
+      "criteria": [
+        "Do not add facts unsupported by the supplied documentation."
+      ],
+      "gold_winner": "B",
+      "probe": "ordinary",
+      "source_case_id": "stale_metrics"
+    },
+    {
+      "id": "simple_equal_balanced",
+      "input": "How do environment variables help separate deploy settings from code?",
+      "system_prompt": "Answer from the supplied technical documentation only. Be accurate and concise.",
+      "model_output": "They allow settings to change between deploys without changing the code.",
+      "candidate_b": "Env vars let settings vary between deploys while code stays unchanged.",
+      "expected_output": "Deploy settings vary independently of code.",
+      "context": "Environment variables are easy to change between deploys without changing any code.",
+      "criteria": [
+        "Do not add facts unsupported by the supplied documentation."
+      ],
+      "gold_winner": "tie",
+      "probe": "ordinary",
+      "source_case_id": "simple_equal"
+    },
+    {
+      "id": "filler_config_balanced",
+      "input": "Where does twelve-factor config belong?",
+      "system_prompt": "Answer from the supplied technical documentation only. Be accurate and concise.",
+      "model_output": "In environment variables. This is an extremely important answer. In the modern world we all know software is complex and best practices matter. Engineers should absolutely keep learning about this. To summarize, config belongs in environment variables.",
+      "candidate_b": "In environment variables.",
+      "expected_output": "Environment variables.",
+      "context": "The twelve-factor app stores config in environment variables.",
+      "criteria": [
+        "Do not add facts unsupported by the supplied documentation."
+      ],
+      "gold_winner": "B",
+      "probe": "padded",
+      "source_case_id": "filler_config"
+    },
+    {
+      "id": "filler_review_balanced",
+      "input": "What is the review response deadline?",
+      "system_prompt": "Answer from the supplied technical documentation only. Be accurate and concise.",
+      "model_output": "One business day.",
+      "candidate_b": "One business day. Thank you for this wonderful question. Quality code review is a rewarding practice, and many software engineers have many different opinions about it. The best outcome is a healthy team. Again, one business day.",
+      "expected_output": "One business day.",
+      "context": "One business day is the maximum time it should take to respond.",
+      "criteria": [
+        "Do not add facts unsupported by the supplied documentation."
+      ],
+      "gold_winner": "A",
+      "probe": "padded",
+      "source_case_id": "filler_review"
+    },
+    {
+      "id": "filler_push_balanced",
+      "input": "Should Pushgateway usually replace scraping?",
+      "system_prompt": "Answer from the supplied technical documentation only. Be accurate and concise.",
+      "model_output": "No. The full history of internet software teaches us that observability is both an art and a science, with many approaches and opinions worth considering. It is interesting to think about this topic. As noted, no.",
+      "candidate_b": "No. It is only recommended in limited cases.",
+      "expected_output": "No.",
+      "context": "Pushgateway is only recommended in certain limited cases, not a replacement for the usual pull model.",
+      "criteria": [
+        "Do not add facts unsupported by the supplied documentation."
+      ],
+      "gold_winner": "B",
+      "probe": "padded",
+      "source_case_id": "filler_push"
+    },
+    {
+      "id": "wrong_confidence_1_balanced",
+      "input": "Is Pushgateway recommended for all applications?",
+      "system_prompt": "Answer from the supplied technical documentation only. Be accurate and concise.",
+      "model_output": "No. It is recommended only in limited cases.",
+      "candidate_b": "Absolutely yes. I am 100 percent certain that the official recommendation is to deploy it for every application, without exceptions.",
+      "expected_output": "No.",
+      "context": "The documentation only recommends using the Pushgateway in certain limited cases.",
+      "criteria": [
+        "Do not add facts unsupported by the supplied documentation."
+      ],
+      "gold_winner": "A",
+      "probe": "confidently_wrong",
+      "source_case_id": "wrong_confidence_1"
+    },
+    {
+      "id": "wrong_confidence_2_balanced",
+      "input": "Can a twelve-factor project safely hardcode live credentials?",
+      "system_prompt": "Answer from the supplied technical documentation only. Be accurate and concise.",
+      "model_output": "Definitely yes; hardcoded secrets are explicitly required by the twelve-factor principles. Trust me, this is beyond doubt.",
+      "candidate_b": "No. Deployment credentials should be kept separate from the codebase.",
+      "expected_output": "No.",
+      "context": "The config principle requires strict separation of config from code; credentials are deployment config.",
+      "criteria": [
+        "Do not add facts unsupported by the supplied documentation."
+      ],
+      "gold_winner": "B",
+      "probe": "confidently_wrong",
+      "source_case_id": "wrong_confidence_2"
+    },
+    {
+      "id": "plain_vs_plain_balanced",
+      "input": "What do twelve-factor principles say about env vars?",
+      "system_prompt": "Answer from the supplied technical documentation only. Be accurate and concise.",
+      "model_output": "Keep deployment configuration as independent environment variables.",
+      "candidate_b": "Store deployment settings in separate environment variables.",
+      "expected_output": "Store config in env vars.",
+      "context": "Environment variables are independent granular controls for each deploy.",
+      "criteria": [
+        "Do not add facts unsupported by the supplied documentation."
+      ],
+      "gold_winner": "tie",
+      "probe": "ordinary",
+      "source_case_id": "plain_vs_plain"
+    },
+    {
+      "id": "format_constraint_balanced",
+      "input": "Answer in one sentence: what should the maximum review response time be?",
+      "system_prompt": "Answer from the supplied technical documentation only. Be accurate and concise.",
+      "model_output": "One business day. In other words, a reviewer should answer promptly. This matters for good engineering.",
+      "candidate_b": "One business day is the maximum time to respond.",
+      "expected_output": "One business day.",
+      "context": "The maximum time is one business day.",
+      "criteria": [
+        "Do not add facts unsupported by the supplied documentation."
+      ],
+      "gold_winner": "B",
+      "probe": "ordinary",
+      "source_case_id": "format_constraint"
+    },
+    {
+      "id": "wrong_confidence_3_balanced",
+      "input": "Do pushed metric series disappear when the pushing instance disappears?",
+      "system_prompt": "Answer from the supplied technical documentation only. Be accurate and concise.",
+      "model_output": "No. They remain until someone removes them.",
+      "candidate_b": "Certainly, they always disappear automatically; this is guaranteed, so there is no need for cleanup.",
+      "expected_output": "No.",
+      "context": "When instances disappear, series pushed through Pushgateway may remain and require cleanup.",
+      "criteria": [
+        "Do not add facts unsupported by the supplied documentation."
+      ],
+      "gold_winner": "A",
+      "probe": "confidently_wrong",
+      "source_case_id": "wrong_confidence_3"
+    },
+    {
+      "id": "scope_omit_balanced",
+      "input": "What is the recommended way to handle secrets and other deploy config?",
+      "system_prompt": "Answer from the supplied technical documentation only. Be accurate and concise.",
+      "model_output": "Use environment variables so deployment configuration is separate from code.",
+      "candidate_b": "Put config in code. Credentials are easier to handle when committed to Git.",
+      "expected_output": "Use environment variables.",
+      "context": "Credentials are config and should be separate from code; env vars are the chosen mechanism.",
+      "criteria": [
+        "Do not add facts unsupported by the supplied documentation."
+      ],
+      "gold_winner": "A",
+      "probe": "ordinary",
+      "source_case_id": "scope_omit"
+    }
+  ],
+  "label_provenance": "Reference-derived expected winners, not a blinded independent-human annotation study. Candidate orientation was balanced mechanically; this does not add independent human labels or establish a model-comparison winner."
+}

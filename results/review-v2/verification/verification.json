@@ -1,0 +1,189 @@
+{
+  "verified_at_utc": "2026-10-18T06:08:43.116703+00:00",
+  "tests": {
+    "exit_code": 0,
+    "passed": 160
+  },
+  "artifact_checks": [
+    {
+      "run": "q24",
+      "report_sha256": "7a2fc873b973b7f3005289c91a232ad50375bacf0c8a28b078565b7401bf1bbc",
+      "audit_sha256": "d47229e67a0dc0c84a091b75f53480baee7161d8584f497d2ca54e875336d74f",
+      "usage_reconciled": true
+    },
+    {
+      "run": "order-verified",
+      "report_sha256": "763906dea9992112ae0f56d69bdc3b17539fd1a7c3a5535777fa408ee121d29d",
+      "audit_sha256": "6b40d4e5319ac39c5d32893e496509ff69de74aecdab19d1af6e6b53b8cd631d",
+      "usage_reconciled": true
+    },
+    {
+      "run": "adversarial",
+      "report_sha256": "df918f345047dfbf764b6fc24411b5c6fc8f45c5d66dc683607e3abef70bd813",
+      "audit_sha256": "aac48bf88ab7b5452a5f2ac3d770556a712ad8ff5ef49a1e592ffba6a107fc41",
+      "usage_reconciled": true
+    },
+    {
+      "run": "problem2-balanced",
+      "report_sha256": "8ced97df92f67ca90b89465b309e1a646162fa0c481979f5a10db71a3f97d97c",
+      "audit_sha256": "1356896fd81c543094f98048c7553f191f25ad20fed0d892c142dc3b48158a76",
+      "usage_reconciled": true
+    },
+    {
+      "run": "faithfulness-all",
+      "report_sha256": "b2087d722fec5f098da5c90a261f9c1c7d63288aa3ee782c8febc002d1ca0524",
+      "audit_sha256": "069bab308112684a115a4fecf295f122a82b004fedf2575d1078578877f0bc91",
+      "usage_reconciled": true
+    }
+  ],
+  "baseline_files": [
+    {
+      "path": "results/answers.jsonl",
+      "sha256": "1ff39b6c114ce757f1dfb783f6d792309edaefb30fce52167a43a956184f6bd9",
+      "unchanged_from_prior_zip": true
+    },
+    {
+      "path": "results/summary.json",
+      "sha256": "54e32cbbd139baadd7595bbadd005260f7a4fcc62b35e8ea98d0a428747c3ecb",
+      "unchanged_from_prior_zip": true
+    },
+    {
+      "path": "results/RESULTS.md",
+      "sha256": "f8ff18065e640323af459981695fe7633341c2d153714f2fed8e172770a5dbff",
+      "unchanged_from_prior_zip": true
+    },
+    {
+      "path": "results/problem2/live/report.json",
+      "sha256": "f48c1bd5bac66beab80a51e1a36564710750e9cfbb49c8cfafc8f6de60b04fd6",
+      "unchanged_from_prior_zip": true
+    },
+    {
+      "path": "results/problem2/live/per_case.json",
+      "sha256": "3d0367744f402ba6b6f7cb0aceac87b6c6fffa5d9969a10263c5a46346b4a32f",
+      "unchanged_from_prior_zip": true
+    },
+    {
+      "path": "results/problem2/live/audit.jsonl",
+      "sha256": "7f3a7739cd8328574bedb506ad948336fa6539b75fd6f5bbdb5442e77354c794",
+      "unchanged_from_prior_zip": true
+    },
+    {
+      "path": "results/problem2/live/report_original.json",
+      "sha256": "44f375e794405e79695beae0b47b0854f57a616a884ac2c34e598f68f595a3f6",
+      "unchanged_from_prior_zip": true
+    },
+    {
+      "path": "results/problem2/live/per_case_original.json",
+      "sha256": "9b97be973d312bd276d928c77c7fa278ea43ca1cdea513d85c5bdb37e0829d1f",
+      "unchanged_from_prior_zip": true
+    },
+    {
+      "path": "results/problem2/live-baseline-repair/audit.jsonl",
+      "sha256": "3646fd5e0029395543d5d22197a89abc018df6aa0767291dcd81816dd5c1d1bc",
+      "unchanged_from_prior_zip": true
+    }
+  ],
+  "source_sha256": {
+    "docqa/api.py": "e775a9b171dbebe62adad9f14955725911d1192ec99dbeba07f80836546c8909",
+    "docqa/chunking.py": "c05cc2d4e97aeb4151862e4687934a86fcf94795c312f346460d6b08ff62b547",
+    "docqa/cli.py": "d92b63d116176b2da4145b80435d33b8310dd1f30ff4a9fb33bf6a9039518b49",
+    "docqa/config.py": "8b725ca03ee7d37b44310c18850cf6fa308a6ec5b8564badc6f9deb5cef5ba2c",
+    "docqa/embeddings.py": "484632d40603c420b5f82d0afe2c9c6425f30fdac471c5aa7f4572639c02b00c",
+    "docqa/ingest.py": "f55914774101e8558301ac66bdf9d71e69767940b67e545b0dd5f2cd382698a2",
+    "docqa/llm.py": "d8b43ebb9f1034c0c39e0046e740a54c90c2719c72dcce5b13d8e12f77387597",
+    "docqa/loaders.py": "23ceccae3fd894c456bfd42ce8383c9c1c6be0376cb0d3afa1b337363002fa8f",
+    "docqa/passages.py": "e401707a0cf79f164cadcb85cae85a7be4be74c50ce884d7dc3dc59edee8c2a9",
+    "docqa/qa.py": "8adae1e152be9d79a191768fd7365a3212d9c2e21fe0abe6401898927d17b21d",
+    "docqa/retrieval.py": "8985112384e568e795a346690f0832ce4dc2b3c65d4391f5af3b3b1df6fcf1d6",
+    "docqa/store.py": "0a754edded95238649e0a0506acb40a6d96e498b878ecf24ec37528a92cda23e",
+    "docqa/__init__.py": "91447944015cec709e8aa7655f7e9d64e1e4508e7023a57fe3746911c0fc6fed",
+    "docqa/__main__.py": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+    "docqa/evaluation/controlled.py": "02615e036b7ce3b9ceb00372e27e0991b7ed49223b4d9025aa0722bfa442a962",
+    "docqa/evaluation/experiments.py": "1ac03228c5c1ad6f08d6d89c5ad999bc133f68ce99c8a40c534b820acc3f878e",
+    "docqa/evaluation/judge.py": "3aa9c09751542a63fd9008b5a00e6d9a19ba8b023516b4c926e2363a15c68dd7",
+    "docqa/evaluation/labels.py": "2a633919b40db600ef9669f86d9ee04ac63833d6a2fe351f42a524317b879b5d",
+    "docqa/evaluation/metrics.py": "522a2a8441436b4660fe77cea782430039318105e79301f836f2ca00dc779675",
+    "docqa/evaluation/offline.py": "9ae4f08b98aa0d66650fc628ac15b31f074a8829bfb3374aecb0ac46ba7d6e2d",
+    "docqa/evaluation/report.py": "2892748f384b9d5110aaac10b25878f0265c42ef9be2eef12d7e8c23362e2412",
+    "docqa/evaluation/run.py": "1aa599e1ef4c5f4ed3dcd51067361a6a76de1dbc01cae34c7269a2574b590be7",
+    "docqa/evaluation/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "judgepipe/cli.py": "76ad4e483aa69154bdd27bf818ca4149a0e4ddd30141ff30aa8f2356cd36a079",
+    "judgepipe/client.py": "b075b0bf69529020fc014f3ef1807ed4951c613e4fc552ee65e9e71a23424307",
+    "judgepipe/parsing.py": "caf2cb04ad857f981ddf2a96031721fa6ed1fc5c37d4b6c5560b807af256a1f0",
+    "judgepipe/rubric.py": "8272e67fa53effc443f924a3b60fa56073d53572fcd84416d7b4337ced6a19b6",
+    "judgepipe/runner.py": "8cd89ed6ae79316c63ab96958b7f5297fa93be7019edf4061f92cff7d366caea",
+    "judgepipe/schema.py": "41f4362a5a5f4e7151e9804b0a738ef52f9c94d3ffe4cdfa7825d5b0022b6238",
+    "judgepipe/__init__.py": "e01f6b9844274ec7e1574649dce1168c5dd9bc7cdc1c73366b00b264c5c2cdcd",
+    "judgepipe/__main__.py": "fce903d20da8305700e66ffa14e6a7dc22e2d435fe5934f44a7cf23b7bda4428",
+    "tests/conftest.py": "6afe9474c227f354639d2ec835fb541690ac45b632428205ae51f27b44032764",
+    "tests/test_adversarial_dataset.py": "38536580f7b26c3e8c263606b3f2cc987d56455f59d54c86022c27c7501bedf0",
+    "tests/test_api.py": "38dcf50550db9ee557b4128f8b89575b012a2e97017e1e008e2ddf95edc3238e",
+    "tests/test_chunking.py": "55e3ac23970e18c07639e69fbbdbcaf5721f457f05c6f9439485b326a133d49c",
+    "tests/test_controlled_experiments.py": "88585e13a7a229ef8de08e0c1722c362b8b8b1a113c52e80c9ec8c86ce06cf4f",
+    "tests/test_embeddings.py": "5c7e6b33f92cb672ffdd1ef8005eb6ac8a014990ae7e3b04c270e50e7db960d2",
+    "tests/test_evaluation_failures.py": "5a51e95d39b53ca30ff85dbc1538881f17fcae12e638a68defb836d81a27ca7e",
+    "tests/test_ingest.py": "7c34cc9cc05c0d695e2ee89f9c5062d25d6b128cd5e79db9991c9a84dabf56ab",
+    "tests/test_judgepipe.py": "96d9714c2b4bcc64cca67707636e19890138eb25693148f161bcf180a79694fd",
+    "tests/test_judgepipe_cli.py": "326798c11b6f5e051ba764042167bca130d032f1ad8c04dddef642919339f78d",
+    "tests/test_llm_and_judge.py": "78cfbf1e07f079e97e73467764f14cb6281f1b84dcb02ee1f1c31b3c49861911",
+    "tests/test_metrics.py": "5108b0adb412eb6b3eacd77cb5abe8d305dac8796c3a83c7319da4d220fc4e63",
+    "tests/test_qa.py": "c0441ce4070e2d2efbe3aaa8162fcc07fa839b86012635667cb7c94ee2eed241",
+    "scripts/bench_store.py": "4fb294af9922e96cb499bb2b38a1608ee5c743c7eda750972e9f63e426895849",
+    "scripts/build_corpus.py": "3ba0314f3cca0c9c744673f803fd5f5c4c993f45855b907e840b3cd34b036efc",
+    "scripts/check_anthropic_connection.py": "82ae5d2218c37f824d70a10499e506bace44fabe8d68f86372c1beb6d66cbb72",
+    "scripts/cost_model.py": "ac2868e50d1cceb77a66680a204b93ead23a08b78e5256a6a0be5725c93f9e3d",
+    "scripts/problem2_consolidate_live_results.py": "e9776340b9291a085c97cba40c4a2e5f7e1d932734d46cf12ee0c0f162706426",
+    "scripts/problem2_evidence_images.py": "7b6973bea7d62fd9710f0d6f313afd1fede14e428001f9c8bdc5a1273b2117e0",
+    "scripts/problem2_smoke.py": "f29430a1f72001c8ab44b936ddc94962c3b4eb72c99983ad9b62bbd36fc02d5d",
+    "scripts/problem2_submission_summary.py": "3867e7d496b91e8b49de674d0ce054a89b46a74fdc9e1ef2a568615a8cca470e",
+    "scripts/rejudge_saved_answers.py": "a9529adef6d4356e0ce3359f6e2c06ba4e0067700b0652faac31dabf968156f7",
+    "scripts/review_verification.py": "cbbd36f652f16db10aae2b88c1fbf188e8afff489f8fe63ae43df5e1acab99d0"
+  },
+  "live_usage": [
+    {
+      "run": "q24",
+      "requests": 8,
+      "prompt_tokens": 21364,
+      "completion_tokens": 1598,
+      "estimated_usd": 0.058708
+    },
+    {
+      "run": "order-verified",
+      "requests": 54,
+      "prompt_tokens": 153720,
+      "completion_tokens": 10642,
+      "estimated_usd": 0.41386
+    },
+    {
+      "run": "adversarial",
+      "requests": 64,
+      "prompt_tokens": 44899,
+      "completion_tokens": 8136,
+      "estimated_usd": 0.1060507
+    },
+    {
+      "run": "problem2-balanced",
+      "requests": 144,
+      "prompt_tokens": 129237,
+      "completion_tokens": 65651,
+      "estimated_usd": 0.914984
+    },
+    {
+      "run": "faithfulness-all",
+      "requests": 25,
+      "prompt_tokens": 70692,
+      "completion_tokens": 4062,
+      "estimated_usd": 0.182004
+    }
+  ],
+  "estimated_new_successful_requests_usd": 1.6756067,
+  "total_successful_requests": 295,
+  "secret_scan": "no Anthropic API credential pattern",
+  "retrieval_status": "complete",
+  "cost_scope": "List-price estimate for recorded successful requests; taxes/credits excluded. Initial rejected configuration attempt is separately preserved in order/ and has no returned token usage.",
+  "pricing_sources": [
+    "https://platform.claude.com/docs/en/models/sonnet-5-5/overview",
+    "https://www.anthropic.com/claude-haiku-5-5"
+  ],
+  "execution_provenance": "The balanced live run used equal-source-information-v2 before raw stop-reason audit fields were added. Final stop-reason rejection is regression-tested; older trial files are preserved as produced."
+}

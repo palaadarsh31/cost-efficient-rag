@@ -1,0 +1,450 @@
+{
+  "kind": "LIVE_CONTROLLED_EVALUATION",
+  "status": "incomplete",
+  "mode": "order",
+  "started_at_utc": "2026-10-18T05:50:54.356771+00:00",
+  "finished_at_utc": "2026-10-18T05:51:28.161259+00:00",
+  "input_source_sha256": "1ff39b6c114ce757f1dfb783f6d792309edaefb30fce52167a43a956184f6bd9",
+  "usage": {
+    "actual_requests": 54,
+    "failed_requests": 54,
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "by_role": {
+      "judge": {
+        "requests": 54,
+        "prompt_tokens": 0,
+        "completion_tokens": 0
+      }
+    }
+  },
+  "experiment": "fixed_answer_judge_order",
+  "seed": 20261018,
+  "original_repeats": 4,
+  "shuffled_orders": 4,
+  "cases": 6,
+  "trials": 54,
+  "failed_trials": 54,
+  "unchanged_variability": {
+    "valid_comparisons": 0,
+    "mean_signed_delta": null,
+    "mean_absolute_delta": null,
+    "score_disagreement_rate": null,
+    "fully_supported_decision_disagreement_rate": null
+  },
+  "reordered_sensitivity": {
+    "valid_comparisons": 0,
+    "mean_signed_delta": null,
+    "mean_absolute_delta": null,
+    "score_disagreement_rate": null,
+    "fully_supported_decision_disagreement_rate": null
+  },
+  "per_case": [
+    {
+      "id": "q07",
+      "original_reference_score": null,
+      "unchanged": {
+        "valid_comparisons": 0,
+        "mean_signed_delta": null,
+        "mean_absolute_delta": null,
+        "score_disagreement_rate": null,
+        "fully_supported_decision_disagreement_rate": null
+      },
+      "reordered": {
+        "valid_comparisons": 0,
+        "mean_signed_delta": null,
+        "mean_absolute_delta": null,
+        "score_disagreement_rate": null,
+        "fully_supported_decision_disagreement_rate": null
+      },
+      "comparisons": {
+        "unchanged": [],
+        "reordered": []
+      }
+    },
+    {
+      "id": "q16",
+      "original_reference_score": null,
+      "unchanged": {
+        "valid_comparisons": 0,
+        "mean_signed_delta": null,
+        "mean_absolute_delta": null,
+        "score_disagreement_rate": null,
+        "fully_supported_decision_disagreement_rate": null
+      },
+      "reordered": {
+        "valid_comparisons": 0,
+        "mean_signed_delta": null,
+        "mean_absolute_delta": null,
+        "score_disagreement_rate": null,
+        "fully_supported_decision_disagreement_rate": null
+      },
+      "comparisons": {
+        "unchanged": [],
+        "reordered": []
+      }
+    },
+    {
+      "id": "q25",
+      "original_reference_score": null,
+      "unchanged": {
+        "valid_comparisons": 0,
+        "mean_signed_delta": null,
+        "mean_absolute_delta": null,
+        "score_disagreement_rate": null,
+        "fully_supported_decision_disagreement_rate": null
+      },
+      "reordered": {
+        "valid_comparisons": 0,
+        "mean_signed_delta": null,
+        "mean_absolute_delta": null,
+        "score_disagreement_rate": null,
+        "fully_supported_decision_disagreement_rate": null
+      },
+      "comparisons": {
+        "unchanged": [],
+        "reordered": []
+      }
+    },
+    {
+      "id": "q21",
+      "original_reference_score": null,
+      "unchanged": {
+        "valid_comparisons": 0,
+        "mean_signed_delta": null,
+        "mean_absolute_delta": null,
+        "score_disagreement_rate": null,
+        "fully_supported_decision_disagreement_rate": null
+      },
+      "reordered": {
+        "valid_comparisons": 0,
+        "mean_signed_delta": null,
+        "mean_absolute_delta": null,
+        "score_disagreement_rate": null,
+        "fully_supported_decision_disagreement_rate": null
+      },
+      "comparisons": {
+        "unchanged": [],
+        "reordered": []
+      }
+    },
+    {
+      "id": "q24",
+      "original_reference_score": null,
+      "unchanged": {
+        "valid_comparisons": 0,
+        "mean_signed_delta": null,
+        "mean_absolute_delta": null,
+        "score_disagreement_rate": null,
+        "fully_supported_decision_disagreement_rate": null
+      },
+      "reordered": {
+        "valid_comparisons": 0,
+        "mean_signed_delta": null,
+        "mean_absolute_delta": null,
+        "score_disagreement_rate": null,
+        "fully_supported_decision_disagreement_rate": null
+      },
+      "comparisons": {
+        "unchanged": [],
+        "reordered": []
+      }
+    },
+    {
+      "id": "q01",
+      "original_reference_score": null,
+      "unchanged": {
+        "valid_comparisons": 0,
+        "mean_signed_delta": null,
+        "mean_absolute_delta": null,
+        "score_disagreement_rate": null,
+        "fully_supported_decision_disagreement_rate": null
+      },
+      "reordered": {
+        "valid_comparisons": 0,
+        "mean_signed_delta": null,
+        "mean_absolute_delta": null,
+        "score_disagreement_rate": null,
+        "fully_supported_decision_disagreement_rate": null
+      },
+      "comparisons": {
+        "unchanged": [],
+        "reordered": []
+      }
+    }
+  ],
+  "failures": [
+    {
+      "case_id": "q07",
+      "variant": "reversed",
+      "error": "invalid judgement"
+    },
+    {
+      "case_id": "q16",
+      "variant": "shuffled_0",
+      "error": "invalid judgement"
+    },
+    {
+      "case_id": "q25",
+      "variant": "original_3",
+      "error": "invalid judgement"
+    },
+    {
+      "case_id": "q21",
+      "variant": "original_3",
+      "error": "invalid judgement"
+    },
+    {
+      "case_id": "q21",
+      "variant": "shuffled_1",
+      "error": "invalid judgement"
+    },
+    {
+      "case_id": "q21",
+      "variant": "original_1",
+      "error": "invalid judgement"
+    },
+    {
+      "case_id": "q21",
+      "variant": "reversed",
+      "error": "invalid judgement"
+    },
+    {
+      "case_id": "q16",
+      "variant": "original_2",
+      "error": "invalid judgement"
+    },
+    {
+      "case_id": "q24",
+      "variant": "shuffled_3",
+      "error": "invalid judgement"
+    },
+    {
+      "case_id": "q24",
+      "variant": "original_2",
+      "error": "invalid judgement"
+    },
+    {
+      "case_id": "q21",
+      "variant": "original_0",
+      "error": "invalid judgement"
+    },
+    {
+      "case_id": "q07",
+      "variant": "original_0",
+      "error": "invalid judgement"
+    },
+    {
+      "case_id": "q07",
+      "variant": "original_1",
+      "error": "invalid judgement"
+    },
+    {
+      "case_id": "q01",
+      "variant": "original_1",
+      "error": "invalid judgement"
+    },
+    {
+      "case_id": "q25",
+      "variant": "shuffled_2",
+      "error": "invalid judgement"
+    },
+    {
+      "case_id": "q01",
+      "variant": "shuffled_0",
+      "error": "invalid judgement"
+    },
+    {
+      "case_id": "q25",
+      "variant": "shuffled_1",
+      "error": "invalid judgement"
+    },
+    {
+      "case_id": "q16",
+      "variant": "shuffled_3",
+      "error": "invalid judgement"
+    },
+    {
+      "case_id": "q16",
+      "variant": "reversed",
+      "error": "invalid judgement"
+    },
+    {
+      "case_id": "q01",
+      "variant": "original_0",
+      "error": "invalid judgement"
+    },
+    {
+      "case_id": "q24",
+      "variant": "original_1",
+      "error": "invalid judgement"
+    },
+    {
+      "case_id": "q21",
+      "variant": "shuffled_3",
+      "error": "invalid judgement"
+    },
+    {
+      "case_id": "q01",
+      "variant": "original_2",
+      "error": "invalid judgement"
+    },
+    {
+      "case_id": "q24",
+      "variant": "reversed",
+      "error": "invalid judgement"
+    },
+    {
+      "case_id": "q24",
+      "variant": "shuffled_0",
+      "error": "invalid judgement"
+    },
+    {
+      "case_id": "q01",
+      "variant": "shuffled_1",
+      "error": "invalid judgement"
+    },
+    {
+      "case_id": "q16",
+      "variant": "shuffled_1",
+      "error": "invalid judgement"
+    },
+    {
+      "case_id": "q16",
+      "variant": "original_1",
+      "error": "invalid judgement"
+    },
+    {
+      "case_id": "q24",
+      "variant": "shuffled_1",
+      "error": "invalid judgement"
+    },
+    {
+      "case_id": "q16",
+      "variant": "shuffled_2",
+      "error": "invalid judgement"
+    },
+    {
+      "case_id": "q16",
+      "variant": "original_0",
+      "error": "invalid judgement"
+    },
+    {
+      "case_id": "q25",
+      "variant": "shuffled_3",
+      "error": "invalid judgement"
+    },
+    {
+      "case_id": "q25",
+      "variant": "original_0",
+      "error": "invalid judgement"
+    },
+    {
+      "case_id": "q01",
+      "variant": "shuffled_3",
+      "error": "invalid judgement"
+    },
+    {
+      "case_id": "q07",
+      "variant": "shuffled_1",
+      "error": "invalid judgement"
+    },
+    {
+      "case_id": "q24",
+      "variant": "shuffled_2",
+      "error": "invalid judgement"
+    },
+    {
+      "case_id": "q25",
+      "variant": "original_2",
+      "error": "invalid judgement"
+    },
+    {
+      "case_id": "q25",
+      "variant": "original_1",
+      "error": "invalid judgement"
+    },
+    {
+      "case_id": "q07",
+      "variant": "original_2",
+      "error": "invalid judgement"
+    },
+    {
+      "case_id": "q24",
+      "variant": "original_0",
+      "error": "invalid judgement"
+    },
+    {
+      "case_id": "q07",
+      "variant": "shuffled_2",
+      "error": "invalid judgement"
+    },
+    {
+      "case_id": "q07",
+      "variant": "shuffled_3",
+      "error": "invalid judgement"
+    },
+    {
+      "case_id": "q24",
+      "variant": "original_3",
+      "error": "invalid judgement"
+    },
+    {
+      "case_id": "q01",
+      "variant": "original_3",
+      "error": "invalid judgement"
+    },
+    {
+      "case_id": "q07",
+      "variant": "shuffled_0",
+      "error": "invalid judgement"
+    },
+    {
+      "case_id": "q01",
+      "variant": "shuffled_2",
+      "error": "invalid judgement"
+    },
+    {
+      "case_id": "q21",
+      "variant": "shuffled_2",
+      "error": "invalid judgement"
+    },
+    {
+      "case_id": "q21",
+      "variant": "shuffled_0",
+      "error": "invalid judgement"
+    },
+    {
+      "case_id": "q21",
+      "variant": "original_2",
+      "error": "invalid judgement"
+    },
+    {
+      "case_id": "q01",
+      "variant": "reversed",
+      "error": "invalid judgement"
+    },
+    {
+      "case_id": "q25",
+      "variant": "reversed",
+      "error": "invalid judgement"
+    },
+    {
+      "case_id": "q16",
+      "variant": "original_3",
+      "error": "invalid judgement"
+    },
+    {
+      "case_id": "q07",
+      "variant": "original_3",
+      "error": "invalid judgement"
+    },
+    {
+      "case_id": "q25",
+      "variant": "shuffled_0",
+      "error": "invalid judgement"
+    }
+  ],
+  "interpretation": "Descriptive fixed-answer judge sensitivity. Reordering differences must be compared with unchanged-order variability; this small sample does not establish systematic position bias or generation-order effects.",
+  "decision_threshold": "Fully supported iff faithfulness score equals 1.0; also report continuous score differences."
+}

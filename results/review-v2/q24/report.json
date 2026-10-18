@@ -1,0 +1,40 @@
+{
+  "kind": "LIVE_CONTROLLED_EVALUATION",
+  "status": "complete",
+  "mode": "q24",
+  "started_at_utc": "2026-10-18T05:48:57.574014+00:00",
+  "finished_at_utc": "2026-10-18T05:49:16.067690+00:00",
+  "baseline_sha256": "1ff39b6c114ce757f1dfb783f6d792309edaefb30fce52167a43a956184f6bd9",
+  "usage": {
+    "actual_requests": 8,
+    "failed_requests": 0,
+    "prompt_tokens": 21364,
+    "completion_tokens": 1598,
+    "by_role": {
+      "judge": {
+        "requests": 8,
+        "prompt_tokens": 21364,
+        "completion_tokens": 1598
+      }
+    }
+  },
+  "experiment": "source_information",
+  "baseline_saved_score": 0.5,
+  "contemporary_controls": {
+    "text_only": {
+      "valid": 4,
+      "mean": 0.0,
+      "min": 0.0,
+      "max": 0.0
+    },
+    "full_metadata": {
+      "valid": 4,
+      "mean": 1.0,
+      "min": 1.0,
+      "max": 1.0
+    }
+  },
+  "failed_trials": 0,
+  "design": "Same saved q24 question, generated answer, passage texts, stable IDs, current judge prompt and model settings. Only source metadata differs; conditions interleaved by fixed random seed.",
+  "caution": "Historical baseline and fresh trials differ in execution time and judge prompt version; use contemporary text-only trials to assess metadata effects."
+}

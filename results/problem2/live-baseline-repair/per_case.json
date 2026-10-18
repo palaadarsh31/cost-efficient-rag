@@ -1,0 +1,482 @@
+[
+  {
+    "id": "stale_metrics",
+    "probe": "ordinary",
+    "gold_winner": "A",
+    "generation_calls": 0,
+    "calls": [
+      {
+        "prompt_tokens": 1023,
+        "completion_tokens": 317,
+        "error": null
+      },
+      {
+        "prompt_tokens": 1024,
+        "completion_tokens": 300,
+        "error": null
+      },
+      {
+        "prompt_tokens": 155,
+        "completion_tokens": 332,
+        "error": null
+      },
+      {
+        "prompt_tokens": 525,
+        "completion_tokens": 268,
+        "error": null
+      },
+      {
+        "prompt_tokens": 540,
+        "completion_tokens": 485,
+        "error": null
+      },
+      {
+        "prompt_tokens": 540,
+        "completion_tokens": 494,
+        "error": null
+      },
+      {
+        "prompt_tokens": 1117,
+        "completion_tokens": 572,
+        "error": null
+      },
+      {
+        "prompt_tokens": 1117,
+        "completion_tokens": 556,
+        "error": null
+      },
+      {
+        "prompt_tokens": 1117,
+        "completion_tokens": 584,
+        "error": null
+      },
+      {
+        "prompt_tokens": 1117,
+        "completion_tokens": 583,
+        "error": null
+      }
+    ],
+    "pointwise_a": {
+      "parsed": {
+        "scores": {
+          "correctness": {
+            "score": 3,
+            "rationale": "The core claim matches the reference: the series remains until deleted. But \"manually\" adds a deletion route the source doesn't mention, and \"exposed\" is a slight reframing. These are minor errors."
+          },
+          "faithfulness": {
+            "score": 2,
+            "rationale": "\"Remains until deleted\" is grounded in the source. \"Manually\" is unsupported, since the source says only that deletion is through the API. \"Exposed\" is also not in the source."
+          },
+          "completeness": {
+            "score": 4,
+            "rationale": "It answers the question concisely: the series persists until deleted. Nothing essential is missing."
+          },
+          "instruction_following": {
+            "score": 2,
+            "rationale": "The answer is concise, but it breaks the instruction not to add facts beyond the documentation by introducing manual deletion as an option."
+          },
+          "tone_safety": {
+            "score": 4,
+            "rationale": "The tone is neutral, clear and appropriate."
+          }
+        },
+        "overall": 2.9
+      },
+      "attempts": 1,
+      "error": null,
+      "raw": "{\"scores\":{\"correctness\":{\"score\":3,\"rationale\":\"The core claim matches the reference: the series remains until deleted. But \\\"manually\\\" adds a deletion route the source doesn't mention, and \\\"exposed\\\" is a slight reframing. These are minor errors.\"},\"faithfulness\":{\"score\":2,\"rationale\":\"\\\"Remains until deleted\\\" is grounded in the source. \\\"Manually\\\" is unsupported, since the source says only that deletion is through the API. \\\"Exposed\\\" is also not in the source.\"},\"completeness\":{\"score\":4,\"rationale\":\"It answers the question concisely: the series persists until deleted. Nothing essential is missing.\"},\"instruction_following\":{\"score\":2,\"rationale\":\"The answer is concise, but it breaks the instruction not to add facts beyond the documentation by introducing manual deletion as an option.\"},\"tone_safety\":{\"score\":4,\"rationale\":\"The tone is neutral, clear and appropriate.\"}}}"
+    },
+    "pointwise_b": {
+      "parsed": {
+        "scores": {
+          "correctness": {
+            "score": 0,
+            "rationale": "The answer says the series disappears automatically when the originating process exits. The reference and source say it remains unless deleted through the API, so the answer contradicts them."
+          },
+          "faithfulness": {
+            "score": 0,
+            "rationale": "The claim is not supported by the supplied documentation and directly contradicts the statement that Pushgateway never forgets pushed series unless deleted."
+          },
+          "completeness": {
+            "score": 0,
+            "rationale": "The answer does not give the essential point that the series persists until it is deleted. It states the opposite."
+          },
+          "instruction_following": {
+            "score": 1,
+            "rationale": "The answer is concise, but it does not answer from the supplied documentation. It adds an unsupported and contradictory fact, which violates the additional criteria."
+          },
+          "tone_safety": {
+            "score": 3,
+            "rationale": "The tone is neutral and acceptable, but it is confidently wrong."
+          }
+        },
+        "overall": 0.45
+      },
+      "attempts": 1,
+      "error": null,
+      "raw": "{\"scores\":{\"correctness\":{\"score\":0,\"rationale\":\"The answer says the series disappears automatically when the originating process exits. The reference and source say it remains unless deleted through the API, so the answer contradicts them.\"},\"faithfulness\":{\"score\":0,\"rationale\":\"The claim is not supported by the supplied documentation and directly contradicts the statement that Pushgateway never forgets pushed series unless deleted.\"},\"completeness\":{\"score\":0,\"rationale\":\"The answer does not give the essential point that the series persists until it is deleted. It states the opposite.\"},\"instruction_following\":{\"score\":1,\"rationale\":\"The answer is concise, but it does not answer from the supplied documentation. It adds an unsupported and contradictory fact, which violates the additional criteria.\"},\"tone_safety\":{\"score\":3,\"rationale\":\"The tone is neutral and acceptable, but it is confidently wrong.\"}}}"
+    },
+    "baseline_pointwise": {
+      "parsed": null,
+      "attempts": 2,
+      "error": null,
+      "raw": "{\"correctness\":{\"score\":4,\"rationale\":\"The answer matches the reference: a pushed series stays in Pushgateway until it is deleted. Naming manual or API deletion is accurate.\"},\"faithfulness\":{\"score\":3,\"rationale\":\"The core claim is consistent with the reference. The added detail about 'manually or through the API' goes slightly beyond the reference but is accurate and does not contradict it.\"},\"completeness\":{\"score\":4,\"rationale\":\"It covers the key point that the series persists until deleted and adds how deletion happens. Nothing essential is missing.\"},\"instruction_following\":{\"score\":4,\"rationale\":\"It answers the question directly and concisely in a single sentence.\"},\"tone_safety\":{\"score\":4,\"rationale\":\"The tone is neutral and professional, with no safety concerns.\"}}"
+    },
+    "baseline_winner": "A",
+    "baseline_reverse_winner": "A",
+    "baseline_position_flip": false,
+    "baseline": {
+      "parsed": {
+        "winner": "A",
+        "rationale": "Candidate A matches the reference and context: a pushed series stays until it is deleted. Candidate B contradicts them by claiming the series disappears when the originating process exits, which is the opposite of Pushgateway's behavior.",
+        "scores_a": {
+          "correctness": {
+            "score": 4,
+            "rationale": "Correctly says the series remains until deleted."
+          },
+          "faithfulness": {
+            "score": 3,
+            "rationale": "Consistent with the context. The phrase 'manually or through the API' is slightly loose, since the context only names the API."
+          },
+          "completeness": {
+            "score": 4,
+            "rationale": "Fully answers the short question and adds the deletion path."
+          },
+          "instruction_following": {
+            "score": 4,
+            "rationale": "Gives a direct, concise answer to the question."
+          },
+          "tone_safety": {
+            "score": 4,
+            "rationale": "Neutral and appropriate."
+          }
+        },
+        "scores_b": {
+          "correctness": {
+            "score": 0,
+            "rationale": "Wrong. Pushed series persist after the process exits."
+          },
+          "faithfulness": {
+            "score": 0,
+            "rationale": "Contradicts the context, which says the series are never forgotten unless deleted."
+          },
+          "completeness": {
+            "score": 0,
+            "rationale": "Does not give the correct outcome."
+          },
+          "instruction_following": {
+            "score": 2,
+            "rationale": "It is a direct and concise answer, but the content is wrong."
+          },
+          "tone_safety": {
+            "score": 4,
+            "rationale": "Neutral and safe."
+          }
+        },
+        "overall_a": 3.75,
+        "overall_b": 0.7,
+        "unsupported_length_penalty_applied": false
+      },
+      "attempts": 1,
+      "error": null,
+      "raw": "{\"winner\":\"A\",\"rationale\":\"Candidate A matches the reference and context: a pushed series stays until it is deleted. Candidate B contradicts them by claiming the series disappears when the originating process exits, which is the opposite of Pushgateway's behavior.\",\"unsupported_length_penalty_applied\":false,\"scores_a\":{\"correctness\":{\"score\":4,\"rationale\":\"Correctly says the series remains until deleted.\"},\"faithfulness\":{\"score\":3,\"rationale\":\"Consistent with the context. The phrase 'manually or through the API' is slightly loose, since the context only names the API.\"},\"completeness\":{\"score\":4,\"rationale\":\"Fully answers the short question and adds the deletion path.\"},\"instruction_following\":{\"score\":4,\"rationale\":\"Gives a direct, concise answer to the question.\"},\"tone_safety\":{\"score\":4,\"rationale\":\"Neutral and appropriate.\"}},\"scores_b\":{\"correctness\":{\"score\":0,\"rationale\":\"Wrong. Pushed series persist after the process exits.\"},\"faithfulness\":{\"score\":0,\"rationale\":\"Contradicts the context, which says the series are never forgotten unless deleted.\"},\"completeness\":{\"score\":0,\"rationale\":\"Does not give the correct outcome.\"},\"instruction_following\":{\"score\":2,\"rationale\":\"It is a direct and concise answer, but the content is wrong.\"},\"tone_safety\":{\"score\":4,\"rationale\":\"Neutral and safe.\"}}}"
+    },
+    "baseline_reverse": {
+      "parsed": {
+        "winner": "B",
+        "rationale": "Candidate B matches the reference and context: pushed series persist until deleted. Candidate A says the series disappears automatically when the process exits, which contradicts the context.",
+        "scores_a": {
+          "correctness": {
+            "score": 0,
+            "rationale": "Wrong: series do not vanish when the originating process exits."
+          },
+          "faithfulness": {
+            "score": 0,
+            "rationale": "Contradicts the context, which says Pushgateway never forgets pushed series unless deleted."
+          },
+          "completeness": {
+            "score": 0,
+            "rationale": "Does not give the correct outcome, so it fails to answer the question."
+          },
+          "instruction_following": {
+            "score": 2,
+            "rationale": "It is a concise, direct answer to the question, but the content is wrong."
+          },
+          "tone_safety": {
+            "score": 4,
+            "rationale": "Neutral and safe."
+          }
+        },
+        "scores_b": {
+          "correctness": {
+            "score": 4,
+            "rationale": "Correct: the series remains until it is deleted."
+          },
+          "faithfulness": {
+            "score": 4,
+            "rationale": "Consistent with the context. 'Manually' is a slight paraphrase, but it is compatible with the API deletion the context describes."
+          },
+          "completeness": {
+            "score": 4,
+            "rationale": "Covers the key point, that the series persists until deleted, and names the deletion route."
+          },
+          "instruction_following": {
+            "score": 4,
+            "rationale": "Direct and concise answer to the question."
+          },
+          "tone_safety": {
+            "score": 4,
+            "rationale": "Neutral and safe."
+          }
+        },
+        "overall_a": 0.7,
+        "overall_b": 4.0,
+        "unsupported_length_penalty_applied": false
+      },
+      "attempts": 1,
+      "error": null,
+      "raw": "{\"winner\":\"B\",\"rationale\":\"Candidate B matches the reference and context: pushed series persist until deleted. Candidate A says the series disappears automatically when the process exits, which contradicts the context.\",\"unsupported_length_penalty_applied\":false,\"scores_a\":{\"correctness\":{\"score\":0,\"rationale\":\"Wrong: series do not vanish when the originating process exits.\"},\"faithfulness\":{\"score\":0,\"rationale\":\"Contradicts the context, which says Pushgateway never forgets pushed series unless deleted.\"},\"completeness\":{\"score\":0,\"rationale\":\"Does not give the correct outcome, so it fails to answer the question.\"},\"instruction_following\":{\"score\":2,\"rationale\":\"It is a concise, direct answer to the question, but the content is wrong.\"},\"tone_safety\":{\"score\":4,\"rationale\":\"Neutral and safe.\"}},\"scores_b\":{\"correctness\":{\"score\":4,\"rationale\":\"Correct: the series remains until it is deleted.\"},\"faithfulness\":{\"score\":4,\"rationale\":\"Consistent with the context. 'Manually' is a slight paraphrase, but it is compatible with the API deletion the context describes.\"},\"completeness\":{\"score\":4,\"rationale\":\"Covers the key point, that the series persists until deleted, and names the deletion route.\"},\"instruction_following\":{\"score\":4,\"rationale\":\"Direct and concise answer to the question.\"},\"tone_safety\":{\"score\":4,\"rationale\":\"Neutral and safe.\"}}}"
+    },
+    "pairwise_repeat_1": {
+      "AB": {
+        "parsed": {
+          "winner": "A",
+          "rationale": "Candidate A matches the reference and context: the series stays until it is deleted. Its \"or manually\" phrase adds a small unsupported detail, since the context only mentions deletion through the API, and \"exposed\" is a mild extrapolation. Candidate B contradicts the context by saying the series disappears automatically when the process exits.",
+          "scores_a": {
+            "correctness": {
+              "score": 3,
+              "rationale": "The core fact is right: the series remains until deleted. The \"manually\" wording is a minor imprecision."
+            },
+            "faithfulness": {
+              "score": 3,
+              "rationale": "Mostly grounded in the context. \"Manually\" and \"exposed\" go slightly beyond the text."
+            },
+            "completeness": {
+              "score": 4,
+              "rationale": "It answers the question concisely and covers the essential fact."
+            },
+            "instruction_following": {
+              "score": 3,
+              "rationale": "It is concise and based on the documentation, but adds a small unsupported nuance."
+            },
+            "tone_safety": {
+              "score": 4,
+              "rationale": "The tone is neutral and clear."
+            }
+          },
+          "scores_b": {
+            "correctness": {
+              "score": 0,
+              "rationale": "It contradicts the reference and context, which say the series is never forgotten unless deleted."
+            },
+            "faithfulness": {
+              "score": 0,
+              "rationale": "The claim is unsupported and opposes the documentation."
+            },
+            "completeness": {
+              "score": 0,
+              "rationale": "It gives the wrong answer, so it fails the task."
+            },
+            "instruction_following": {
+              "score": 1,
+              "rationale": "It does not answer from the supplied documentation and adds a fabricated claim."
+            },
+            "tone_safety": {
+              "score": 3,
+              "rationale": "The tone is neutral, but the content is misleading."
+            }
+          },
+          "overall_a": 3.3,
+          "overall_b": 0.45,
+          "unsupported_length_penalty_applied": false
+        },
+        "attempts": 1,
+        "error": null,
+        "raw": "{\"winner\":\"A\",\"rationale\":\"Candidate A matches the reference and context: the series stays until it is deleted. Its \\\"or manually\\\" phrase adds a small unsupported detail, since the context only mentions deletion through the API, and \\\"exposed\\\" is a mild extrapolation. Candidate B contradicts the context by saying the series disappears automatically when the process exits.\",\"unsupported_length_penalty_applied\":false,\"scores_a\":{\"correctness\":{\"score\":3,\"rationale\":\"The core fact is right: the series remains until deleted. The \\\"manually\\\" wording is a minor imprecision.\"},\"faithfulness\":{\"score\":3,\"rationale\":\"Mostly grounded in the context. \\\"Manually\\\" and \\\"exposed\\\" go slightly beyond the text.\"},\"completeness\":{\"score\":4,\"rationale\":\"It answers the question concisely and covers the essential fact.\"},\"instruction_following\":{\"score\":3,\"rationale\":\"It is concise and based on the documentation, but adds a small unsupported nuance.\"},\"tone_safety\":{\"score\":4,\"rationale\":\"The tone is neutral and clear.\"}},\"scores_b\":{\"correctness\":{\"score\":0,\"rationale\":\"It contradicts the reference and context, which say the series is never forgotten unless deleted.\"},\"faithfulness\":{\"score\":0,\"rationale\":\"The claim is unsupported and opposes the documentation.\"},\"completeness\":{\"score\":0,\"rationale\":\"It gives the wrong answer, so it fails the task.\"},\"instruction_following\":{\"score\":1,\"rationale\":\"It does not answer from the supplied documentation and adds a fabricated claim.\"},\"tone_safety\":{\"score\":3,\"rationale\":\"The tone is neutral, but the content is misleading.\"}}}"
+      },
+      "BA": {
+        "parsed": {
+          "winner": "B",
+          "rationale": "Candidate A contradicts the source and reference: it says the series disappears when the process exits, but the source says Pushgateway never forgets pushed series unless they are deleted through the API. Candidate B matches the reference, since the series remains until deleted. Its phrase 'manually or through the API' slightly overstates the source, which names only the API, so it loses a little on faithfulness.",
+          "scores_a": {
+            "correctness": {
+              "score": 0,
+              "rationale": "Directly contradicts the reference and source."
+            },
+            "faithfulness": {
+              "score": 0,
+              "rationale": "The claim of automatic disappearance when the process exits is unsupported and contradicted by the source."
+            },
+            "completeness": {
+              "score": 0,
+              "rationale": "It gives the wrong outcome, so it does not answer the question."
+            },
+            "instruction_following": {
+              "score": 2,
+              "rationale": "It is concise, but it does not answer from the documentation."
+            },
+            "tone_safety": {
+              "score": 3,
+              "rationale": "The tone is neutral, but the answer is misleading."
+            }
+          },
+          "scores_b": {
+            "correctness": {
+              "score": 4,
+              "rationale": "It states that the series remains until deleted, which matches the reference."
+            },
+            "faithfulness": {
+              "score": 3,
+              "rationale": "The core claim is grounded. 'Manually' is a minor addition, because the source mentions only deletion via the API."
+            },
+            "completeness": {
+              "score": 4,
+              "rationale": "It answers the question concisely."
+            },
+            "instruction_following": {
+              "score": 3,
+              "rationale": "It is concise and mostly grounded, with a slight unsupported addition."
+            },
+            "tone_safety": {
+              "score": 4,
+              "rationale": "The tone is clear and neutral."
+            }
+          },
+          "overall_a": 0.6,
+          "overall_b": 3.6,
+          "unsupported_length_penalty_applied": false
+        },
+        "attempts": 1,
+        "error": null,
+        "raw": "{\"winner\":\"B\",\"rationale\":\"Candidate A contradicts the source and reference: it says the series disappears when the process exits, but the source says Pushgateway never forgets pushed series unless they are deleted through the API. Candidate B matches the reference, since the series remains until deleted. Its phrase 'manually or through the API' slightly overstates the source, which names only the API, so it loses a little on faithfulness.\",\"unsupported_length_penalty_applied\":false,\"scores_a\":{\"correctness\":{\"score\":0,\"rationale\":\"Directly contradicts the reference and source.\"},\"faithfulness\":{\"score\":0,\"rationale\":\"The claim of automatic disappearance when the process exits is unsupported and contradicted by the source.\"},\"completeness\":{\"score\":0,\"rationale\":\"It gives the wrong outcome, so it does not answer the question.\"},\"instruction_following\":{\"score\":2,\"rationale\":\"It is concise, but it does not answer from the documentation.\"},\"tone_safety\":{\"score\":3,\"rationale\":\"The tone is neutral, but the answer is misleading.\"}},\"scores_b\":{\"correctness\":{\"score\":4,\"rationale\":\"It states that the series remains until deleted, which matches the reference.\"},\"faithfulness\":{\"score\":3,\"rationale\":\"The core claim is grounded. 'Manually' is a minor addition, because the source mentions only deletion via the API.\"},\"completeness\":{\"score\":4,\"rationale\":\"It answers the question concisely.\"},\"instruction_following\":{\"score\":3,\"rationale\":\"It is concise and mostly grounded, with a slight unsupported addition.\"},\"tone_safety\":{\"score\":4,\"rationale\":\"The tone is clear and neutral.\"}}}"
+      },
+      "AB_canonical_winner": "A",
+      "BA_canonical_winner": "A",
+      "decision_after_order_consensus": "A",
+      "position_flip": false
+    },
+    "pairwise_repeat_2": {
+      "AB": {
+        "parsed": {
+          "winner": "A",
+          "rationale": "Candidate A matches the reference that the series remains until deleted. It adds \"manually or\" and \"exposed\", which the source does not support. The source says only that deletion is through the API, so the addition is a minor unsupported claim. Candidate B says the series disappears automatically when the process exits, which contradicts the source.",
+          "scores_a": {
+            "correctness": {
+              "score": 3,
+              "rationale": "Core fact is right (it remains until deleted). \"Manually\" is a slight addition beyond the API-only deletion in the source."
+            },
+            "faithfulness": {
+              "score": 3,
+              "rationale": "Mostly grounded in the context. \"Manually\" and \"exposed\" are not stated in the source."
+            },
+            "completeness": {
+              "score": 4,
+              "rationale": "Answers the question concisely and fully."
+            },
+            "instruction_following": {
+              "score": 3,
+              "rationale": "Concise and based on the documentation, but with a minor unsupported addition that goes against the additional criteria."
+            },
+            "tone_safety": {
+              "score": 4,
+              "rationale": "Neutral and clear."
+            }
+          },
+          "scores_b": {
+            "correctness": {
+              "score": 0,
+              "rationale": "Contradicts the source and reference, which say the series persists until deleted."
+            },
+            "faithfulness": {
+              "score": 0,
+              "rationale": "The claim is unsupported and opposite to the context."
+            },
+            "completeness": {
+              "score": 0,
+              "rationale": "Gives the wrong answer, so it fails the task."
+            },
+            "instruction_following": {
+              "score": 1,
+              "rationale": "It is concise but adds an unsupported, contradictory fact, violating the grounding constraint."
+            },
+            "tone_safety": {
+              "score": 3,
+              "rationale": "Neutral in tone but misleading."
+            }
+          },
+          "overall_a": 3.3,
+          "overall_b": 0.45,
+          "unsupported_length_penalty_applied": false
+        },
+        "attempts": 1,
+        "error": null,
+        "raw": "{\"winner\":\"A\",\"rationale\":\"Candidate A matches the reference that the series remains until deleted. It adds \\\"manually or\\\" and \\\"exposed\\\", which the source does not support. The source says only that deletion is through the API, so the addition is a minor unsupported claim. Candidate B says the series disappears automatically when the process exits, which contradicts the source.\",\"unsupported_length_penalty_applied\":false,\"scores_a\":{\"correctness\":{\"score\":3,\"rationale\":\"Core fact is right (it remains until deleted). \\\"Manually\\\" is a slight addition beyond the API-only deletion in the source.\"},\"faithfulness\":{\"score\":3,\"rationale\":\"Mostly grounded in the context. \\\"Manually\\\" and \\\"exposed\\\" are not stated in the source.\"},\"completeness\":{\"score\":4,\"rationale\":\"Answers the question concisely and fully.\"},\"instruction_following\":{\"score\":3,\"rationale\":\"Concise and based on the documentation, but with a minor unsupported addition that goes against the additional criteria.\"},\"tone_safety\":{\"score\":4,\"rationale\":\"Neutral and clear.\"}},\"scores_b\":{\"correctness\":{\"score\":0,\"rationale\":\"Contradicts the source and reference, which say the series persists until deleted.\"},\"faithfulness\":{\"score\":0,\"rationale\":\"The claim is unsupported and opposite to the context.\"},\"completeness\":{\"score\":0,\"rationale\":\"Gives the wrong answer, so it fails the task.\"},\"instruction_following\":{\"score\":1,\"rationale\":\"It is concise but adds an unsupported, contradictory fact, violating the grounding constraint.\"},\"tone_safety\":{\"score\":3,\"rationale\":\"Neutral in tone but misleading.\"}},\"unsupported_length_penalty_applied\":false}"
+      },
+      "BA": {
+        "parsed": {
+          "winner": "B",
+          "rationale": "Candidate A contradicts the source and reference: pushed series are not forgotten when the originating process exits. Candidate B states that the series remains until deleted, which matches. Its only addition is \"manually or through the API\", a slight embellishment, since the source mentions only the API. Candidate B is far more accurate.",
+          "scores_a": {
+            "correctness": {
+              "score": 0,
+              "rationale": "Says the series disappears automatically on process exit, which directly contradicts the reference and source."
+            },
+            "faithfulness": {
+              "score": 0,
+              "rationale": "The claim is unsupported by the context, which says the opposite."
+            },
+            "completeness": {
+              "score": 0,
+              "rationale": "Gives the wrong outcome, so it does not answer the question."
+            },
+            "instruction_following": {
+              "score": 2,
+              "rationale": "It is concise, but it does not answer from the documentation; it contradicts it."
+            },
+            "tone_safety": {
+              "score": 3,
+              "rationale": "The tone is neutral, but it states a misleading claim confidently."
+            }
+          },
+          "scores_b": {
+            "correctness": {
+              "score": 3,
+              "rationale": "Correctly says the series remains until deleted. The phrase \"manually\" is a minor imprecision, since the source specifies deletion through the API."
+            },
+            "faithfulness": {
+              "score": 3,
+              "rationale": "The core claim is grounded in the source. \"Manually\" and \"exposed\" are slight additions."
+            },
+            "completeness": {
+              "score": 4,
+              "rationale": "Covers the essential point concisely: the series persists until deleted."
+            },
+            "instruction_following": {
+              "score": 3,
+              "rationale": "Concise and mostly from the documentation, with a minor unsupported addition."
+            },
+            "tone_safety": {
+              "score": 4,
+              "rationale": "Clear and neutral."
+            }
+          },
+          "overall_a": 0.6,
+          "overall_b": 3.3,
+          "unsupported_length_penalty_applied": false
+        },
+        "attempts": 1,
+        "error": null,
+        "raw": "{\"winner\":\"B\",\"rationale\":\"Candidate A contradicts the source and reference: pushed series are not forgotten when the originating process exits. Candidate B states that the series remains until deleted, which matches. Its only addition is \\\"manually or through the API\\\", a slight embellishment, since the source mentions only the API. Candidate B is far more accurate.\",\"unsupported_length_penalty_applied\":false,\"scores_a\":{\"correctness\":{\"score\":0,\"rationale\":\"Says the series disappears automatically on process exit, which directly contradicts the reference and source.\"},\"faithfulness\":{\"score\":0,\"rationale\":\"The claim is unsupported by the context, which says the opposite.\"},\"completeness\":{\"score\":0,\"rationale\":\"Gives the wrong outcome, so it does not answer the question.\"},\"instruction_following\":{\"score\":2,\"rationale\":\"It is concise, but it does not answer from the documentation; it contradicts it.\"},\"tone_safety\":{\"score\":3,\"rationale\":\"The tone is neutral, but it states a misleading claim confidently.\"}},\"scores_b\":{\"correctness\":{\"score\":3,\"rationale\":\"Correctly says the series remains until deleted. The phrase \\\"manually\\\" is a minor imprecision, since the source specifies deletion through the API.\"},\"faithfulness\":{\"score\":3,\"rationale\":\"The core claim is grounded in the source. \\\"Manually\\\" and \\\"exposed\\\" are slight additions.\"},\"completeness\":{\"score\":4,\"rationale\":\"Covers the essential point concisely: the series persists until deleted.\"},\"instruction_following\":{\"score\":3,\"rationale\":\"Concise and mostly from the documentation, with a minor unsupported addition.\"},\"tone_safety\":{\"score\":4,\"rationale\":\"Clear and neutral.\"}}}"
+      },
+      "AB_canonical_winner": "A",
+      "BA_canonical_winner": "A",
+      "decision_after_order_consensus": "A",
+      "position_flip": false
+    },
+    "pairwise": true,
+    "first_order_winner": "A",
+    "position_flip": false,
+    "retest_consistent": true,
+    "decision": "A"
+  }
+]

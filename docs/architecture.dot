@@ -1,0 +1,54 @@
+digraph docqa {
+  graph [rankdir=TB, fontname="Helvetica", fontsize=12, nodesep=0.35, ranksep=0.45, pad=0.3,
+         bgcolor="white", newrank=true, splines=spline];
+  node  [shape=box, style="rounded,filled", fontname="Helvetica", fontsize=11, color="#4b5563",
+         fillcolor="#ffffff", penwidth=1.2, margin="0.15,0.08"];
+  edge  [color="#4b5563", fontname="Helvetica", fontsize=10, penwidth=1.1, arrowsize=0.7];
+
+  subgraph cluster_ingest {
+    label="Ingestion  (python -m docqa ingest data/corpus  |  POST /ingest)"; labeljust=l;
+    style="rounded,filled"; fillcolor="#eef4fb"; color="#93b4dc"; fontsize=13;
+
+    corpus  [label="Corpus folder\nPDF · HTML · Markdown\n(collection = top-level folder)", fillcolor="#dbe8f7"];
+    check   [label="Already indexed?\nsha256(file) + config fingerprint\n(chunk size, overlap, model, dim)", shape=diamond, style="filled", fillcolor="#fff4d6", color="#c9a227", fontsize=10];
+    skip    [label="skip: no parse,\nno embedding cost", fillcolor="#f3f4f6", fontsize=10];
+    load    [label="Loaders\npypdf (headers/footers, TOC stripped)\nBeautifulSoup (nav/footer/script dropped)\nMarkdown → HTML → blocks"];
+    chunk   [label="Chunker\n350 tokens, 50 overlap (defaults)\nsentence-aligned, heading-aware\nexact char offsets kept"];
+    embed   [label="Embedding model\nBAAI/bge-small-en-v1.5\n384-d, ONNX on CPU (fastembed)\ntitle | section header + chunk"];
+    sqlite  [label="One SQLite file, one transaction per document\n\nchunks: text, section, pages, offsets, chunk_id UNIQUE\nvec0: float[384] cosine + metadata (doc_type, collection, doc_id)\nFTS5: BM25 keyword index\n\nold chunks of a changed file are replaced, never duplicated", shape=cylinder, fillcolor="#d7f0e3", color="#3f8f62", fontsize=10];
+
+    corpus -> check;
+    check -> skip  [label="unchanged"];
+    check -> load  [label="new / changed"];
+    load -> chunk -> embed -> sqlite;
+  }
+
+  subgraph cluster_query {
+    label="Query  (POST /query  |  python -m docqa query \"...\")"; labeljust=l;
+    style="rounded,filled"; fillcolor="#eefaf2"; color="#86c9a0"; fontsize=13;
+
+    req     [label="Request\nquestion, k (default 5)\nfilters: collection / doc_type / doc_id\nmode: dense | hybrid", fillcolor="#d7f0e3"];
+    qembed  [label="Embed question\n(+ BGE query instruction)"];
+    knn     [label="Top-k retrieval\nvec0 KNN WHERE collection = ? AND ...\nhybrid: + FTS5 BM25, fused with RRF"];
+    gate    [label="best cosine\n≥ MIN_SCORE?", shape=diamond, style="filled", fillcolor="#fff4d6", color="#c9a227", fontsize=10];
+    nocontext [label="No relevant context\n\"I don't know based on the\nprovided documents.\"\nLLM not called, 0 tokens", fillcolor="#fde2e1", color="#c0504d"];
+    prompt  [label="Grounded prompt\nnumbered passages [1..k] + source/page\nrules: passages only, cite [n],\nelse reply with the abstain sentence"];
+    llm     [label="LLM\nany OpenAI-compatible endpoint\n(OpenAI, Gemini, Groq, Ollama, vLLM)\ntemperature 0"];
+    abst    [label="model says\n\"I don't know\"?", shape=diamond, style="filled", fillcolor="#fff4d6", color="#c9a227", fontsize=10];
+    cite    [label="Parse [n] citations\nmap to chunk_id, doc, page, section\nflag invalid / missing citations"];
+    resp    [label="Response JSON\nanswer + citations + retrieved chunks\nchunk_count, tokens in/out\nlatency: embed / search / llm / total", fillcolor="#d7f0e3"];
+    log     [label="logs/queries.jsonl\none line per query", shape=note, fillcolor="#f3f4f6", fontsize=10];
+
+    req -> qembed -> knn -> gate;
+    gate -> prompt [label="yes"];
+    gate -> nocontext [label="no", color="#c0504d", fontcolor="#c0504d"];
+    prompt -> llm -> abst;
+    abst -> cite [label="no"];
+    abst -> nocontext [label="yes", color="#c0504d", fontcolor="#c0504d"];
+    cite -> resp;
+    nocontext -> resp [style=dashed];
+    resp -> log [style=dashed];
+  }
+
+  sqlite -> knn [label="read", style=dashed, color="#3f8f62", fontcolor="#3f8f62", constraint=false];
+}

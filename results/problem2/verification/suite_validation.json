@@ -1,0 +1,7 @@
+{
+  "valid": true,
+  "cases": 16,
+  "paired": 16,
+  "gold_labeled": 16,
+  "adversarial": 8
+}

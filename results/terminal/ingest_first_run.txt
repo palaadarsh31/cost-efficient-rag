@@ -1,0 +1,5 @@
+$ python -m docqa ingest data/corpus
+ingest data/corpus -> data/index/docqa.db
+  config: chunk_size=350 overlap=50 model=BAAI/bge-small-en-v1.5 dim=384
+  files 33 | added 33 | updated 0 | unchanged 0 | removed 0 | chunks written 274
+  vectors before 0 -> after 274 | documents 33 | chunks 274 | fts rows 274 | 44.00 s

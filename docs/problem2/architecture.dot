@@ -1,0 +1,27 @@
+digraph P2 {
+  graph [label="Problem 2: Auditable LLM-as-Judge Pipeline",labelloc=t,fontname="DejaVu Sans",fontsize=19,ranksep=.55,nodesep=.3, bgcolor="white"];
+  node [shape=box,style="rounded,filled",fontname="DejaVu Sans",fillcolor="#edf4fb",color="#64849d",fontsize=11,margin="0.18,0.1"];
+  edge [color="#527a94",arrowsize=.8];
+  suite [label="JSON / YAML test suite\ninput, system_prompt, outputs A/B\nreference, gold label, probe type"];
+  validate [label="Schema validation\n16 paired reference cases"];
+  gen [label="Optional generator call\nseparately configured model"];
+  rubric [label="Calibrated 0-4 rubric\n5 criteria + rationales"];
+  pair [label="Pairwise judge calls\nA→B AND B→A, repeated"];
+  base [label="Optional unmitigated baseline\npointwise + A→B"];
+  point [label="Pointwise judge calls\nA and B individually"];
+  recover [shape=diamond,fillcolor="#fff0d5",label="Valid JSON +\nrequired fields?"];
+  retry [label="Retry once with correction\nelse mark invalid / exclude"];
+  order [label="Remap reverse order to original A/B\nrequire agreement, else tie"];
+  metrics [label="Suite evaluation\nA/B win rates, pass rate, kappa\nposition flips, probes, test-retest\nscore spread, tokens and cost"];
+  audit [label="Audit log\neach full prompt + raw response\nusage + errors + latency",fillcolor="#e9f6e9"];
+  out [label="per_case.json + report.json\nNot real evidence until live LLM run",fillcolor="#e9f6e9"];
+  suite -> validate -> gen -> rubric;
+  rubric -> {point pair base};
+  {point pair base} -> recover;
+  recover -> retry [label="no"];
+  retry -> recover [label="second attempt",color="#b88642"];
+  recover -> order [label="yes"];
+  order -> metrics -> out;
+  {point pair base} -> audit [style=dashed];
+  audit -> out [style=dotted];
+}

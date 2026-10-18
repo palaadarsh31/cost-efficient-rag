@@ -1,0 +1,47 @@
+[
+  {
+    "path": "results/answers.jsonl",
+    "sha256": "1ff39b6c114ce757f1dfb783f6d792309edaefb30fce52167a43a956184f6bd9",
+    "unchanged_from_prior_zip": true
+  },
+  {
+    "path": "results/summary.json",
+    "sha256": "54e32cbbd139baadd7595bbadd005260f7a4fcc62b35e8ea98d0a428747c3ecb",
+    "unchanged_from_prior_zip": true
+  },
+  {
+    "path": "results/RESULTS.md",
+    "sha256": "f8ff18065e640323af459981695fe7633341c2d153714f2fed8e172770a5dbff",
+    "unchanged_from_prior_zip": true
+  },
+  {
+    "path": "results/problem2/live/report.json",
+    "sha256": "f48c1bd5bac66beab80a51e1a36564710750e9cfbb49c8cfafc8f6de60b04fd6",
+    "unchanged_from_prior_zip": true
+  },
+  {
+    "path": "results/problem2/live/per_case.json",
+    "sha256": "3d0367744f402ba6b6f7cb0aceac87b6c6fffa5d9969a10263c5a46346b4a32f",
+    "unchanged_from_prior_zip": true
+  },
+  {
+    "path": "results/problem2/live/audit.jsonl",
+    "sha256": "7f3a7739cd8328574bedb506ad948336fa6539b75fd6f5bbdb5442e77354c794",
+    "unchanged_from_prior_zip": true
+  },
+  {
+    "path": "results/problem2/live/report_original.json",
+    "sha256": "44f375e794405e79695beae0b47b0854f57a616a884ac2c34e598f68f595a3f6",
+    "unchanged_from_prior_zip": true
+  },
+  {
+    "path": "results/problem2/live/per_case_original.json",
+    "sha256": "9b97be973d312bd276d928c77c7fa278ea43ca1cdea513d85c5bdb37e0829d1f",
+    "unchanged_from_prior_zip": true
+  },
+  {
+    "path": "results/problem2/live-baseline-repair/audit.jsonl",
+    "sha256": "3646fd5e0029395543d5d22197a89abc018df6aa0767291dcd81816dd5c1d1bc",
+    "unchanged_from_prior_zip": true
+  }
+]

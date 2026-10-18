@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Emergencies | eng-practices</title>
+<link rel="stylesheet" href="/eng-practices/assets/css/style.css">
+<script>window.dataLayer = window.dataLayer || [];</script>
+</head>
+<body>
+<header class="site-header">
+  <nav><a href="/eng-practices/">Google Engineering Practices</a> /
+  <a href="/eng-practices/review/">Code Review</a></nav>
+</header>
+<main id="content">
+<h1>Emergencies</h1>
+<p>Sometimes there are emergency CLs that must pass through the entire code review
+process as quickly as
+possible.</p>
+<h2 id="what">What Is An Emergency?</h2>
+<p>An emergency CL would be a <strong>small</strong> change that: allows a major launch to
+continue instead of rolling back, fixes a bug significantly affecting users in
+production, handles a pressing legal issue, closes a major security hole, etc.</p>
+<p>In emergencies we really do care about the speed of the entire code review
+process, not just the <a href="reviewer/speed.md">speed of response</a>. In this case
+<em>only</em>, the reviewer should care more about the speed of the review and the
+correctness of the code (does it actually resolve the emergency?) than anything
+else. Also (perhaps obviously) such reviews should take priority over all other
+code reviews, when they come up.</p>
+<p>However, after the emergency is resolved you should look over the emergency CLs
+again and give them a <a href="reviewer/looking-for.md">more thorough review</a>.</p>
+<h2 id="not">What Is NOT An Emergency?</h2>
+<p>To be clear, the following cases are <em>not</em> an emergency:</p>
+<ul>
+<li>Wanting to launch this week rather than next week (unless there is some
+    actual <a href="#deadlines">hard deadline</a> for launch such as a partner agreement).</li>
+<li>The developer has worked on a feature for a very long time and they really
+    want to get the CL in.</li>
+<li>The reviewers are all in another timezone where it is currently nighttime or
+    they are away on an off-site.</li>
+<li>It is the end of the day on a Friday and it would just be great to get this
+    CL in before the developer leaves for the weekend.</li>
+<li>A manager says that this review has to be complete and the CL checked in
+    today because of a <a href="#deadlines">soft (not hard) deadline</a>.</li>
+<li>Rolling back a CL that is causing test failures or build breakages.</li>
+</ul>
+<p>And so on.</p>
+<h2 id="deadlines">What Is a Hard Deadline?</h2>
+<p>A hard deadline is one where <strong>something disastrous would happen</strong> if you miss
+it. For example:</p>
+<ul>
+<li>Submitting your CL by a certain date is necessary for a contractual
+    obligation.</li>
+<li>Your product will completely fail in the marketplace if not released by a
+    certain date.</li>
+<li>Some hardware manufacturers only ship new hardware once a year. If you miss
+    the deadline to submit code to them, that could be disastrous, depending on
+    what type of code you're trying to ship.</li>
+</ul>
+<p>Delaying a release for a week is not disastrous. Missing an important conference
+might be disastrous, but often is not.</p>
+<p>Most deadlines are soft deadlines, not hard deadlines. They represent a desire
+for a feature to be done by a certain time. They are important, but you
+shouldn't be sacrificing code health to make them.</p>
+<p>If you have a long release cycle (several weeks) it can be tempting to sacrifice
+code review quality to get a feature in before the next cycle. However, this
+pattern, if repeated, is a common way for projects to build up overwhelming
+technical debt. If developers are routinely submitting CLs near the end of the
+cycle that "must get in" with only superficial review, then the team should
+modify its process so that large feature changes happen early in the cycle and
+have enough time for good review.</p>
+</main>
+<footer class="site-footer">
+  <p>Source: google/eng-practices (review/emergencies.md), licensed under CC-BY 3.0.</p>
+</footer>
+</body>
+</html>

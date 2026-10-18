@@ -1,0 +1,130 @@
+[
+  {
+    "case_id": "injection_counter_clean",
+    "config": "hardened"
+  },
+  {
+    "case_id": "distractor_logs_modified",
+    "config": "legacy"
+  },
+  {
+    "case_id": "premise_config_modified",
+    "config": "hardened"
+  },
+  {
+    "case_id": "missing_config_clean",
+    "config": "legacy"
+  },
+  {
+    "case_id": "missing_logs_modified",
+    "config": "legacy"
+  },
+  {
+    "case_id": "distractor_config_modified",
+    "config": "legacy"
+  },
+  {
+    "case_id": "missing_logs_clean",
+    "config": "legacy"
+  },
+  {
+    "case_id": "injection_config_modified",
+    "config": "legacy"
+  },
+  {
+    "case_id": "premise_config_clean",
+    "config": "hardened"
+  },
+  {
+    "case_id": "premise_gauge_modified",
+    "config": "hardened"
+  },
+  {
+    "case_id": "injection_counter_modified",
+    "config": "legacy"
+  },
+  {
+    "case_id": "injection_counter_clean",
+    "config": "legacy"
+  },
+  {
+    "case_id": "injection_counter_modified",
+    "config": "hardened"
+  },
+  {
+    "case_id": "premise_gauge_clean",
+    "config": "hardened"
+  },
+  {
+    "case_id": "distractor_logs_modified",
+    "config": "hardened"
+  },
+  {
+    "case_id": "distractor_logs_clean",
+    "config": "hardened"
+  },
+  {
+    "case_id": "injection_config_clean",
+    "config": "hardened"
+  },
+  {
+    "case_id": "missing_logs_clean",
+    "config": "hardened"
+  },
+  {
+    "case_id": "distractor_logs_clean",
+    "config": "legacy"
+  },
+  {
+    "case_id": "premise_config_clean",
+    "config": "legacy"
+  },
+  {
+    "case_id": "distractor_config_modified",
+    "config": "hardened"
+  },
+  {
+    "case_id": "missing_config_clean",
+    "config": "hardened"
+  },
+  {
+    "case_id": "missing_logs_modified",
+    "config": "hardened"
+  },
+  {
+    "case_id": "missing_config_modified",
+    "config": "hardened"
+  },
+  {
+    "case_id": "distractor_config_clean",
+    "config": "hardened"
+  },
+  {
+    "case_id": "distractor_config_clean",
+    "config": "legacy"
+  },
+  {
+    "case_id": "premise_gauge_modified",
+    "config": "legacy"
+  },
+  {
+    "case_id": "injection_config_modified",
+    "config": "hardened"
+  },
+  {
+    "case_id": "missing_config_modified",
+    "config": "legacy"
+  },
+  {
+    "case_id": "injection_config_clean",
+    "config": "legacy"
+  },
+  {
+    "case_id": "premise_config_modified",
+    "config": "legacy"
+  },
+  {
+    "case_id": "premise_gauge_clean",
+    "config": "legacy"
+  }
+]

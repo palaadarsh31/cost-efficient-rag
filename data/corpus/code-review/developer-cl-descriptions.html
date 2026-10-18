@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Writing good CL descriptions | eng-practices</title>
+<link rel="stylesheet" href="/eng-practices/assets/css/style.css">
+<script>window.dataLayer = window.dataLayer || [];</script>
+</head>
+<body>
+<header class="site-header">
+  <nav><a href="/eng-practices/">Google Engineering Practices</a> /
+  <a href="/eng-practices/review/">Code Review</a></nav>
+</header>
+<main id="content">
+<h1>Writing good CL descriptions</h1>
+<p>A CL description is a public record of change, and it is important that it
+communicates:</p>
+<ol>
+<li>
+<p><strong>What</strong> change is being made? This should summarize the major changes such
+    that readers have a sense of what is being changed without needing to read
+    the entire CL.</p>
+</li>
+<li>
+<p><strong>Why</strong> are these changes being made? What contexts did you have as an
+    author when making this change? Were there decisions you made that aren't
+    reflected in the source code? etc.</p>
+</li>
+</ol>
+<p>The CL description will become a permanent part of our version control history
+and will possibly be read by hundreds of people over the years.</p>
+<p>Future developers will search for your CL based on its description. Someone in
+the future might be looking for your change because of a faint memory of its
+relevance but without the specifics handy. If all the important information is
+in the code and not the description, it's going to be a lot harder for them to
+locate your CL.</p>
+<p>And then, after they find the CL, will they be able to understand <em>why</em> the
+change was made? Reading source code may reveal what the software is doing but
+it may not reveal why it exists, which can make it harder for future developers
+to know whether they can move
+<a href="https://abseil.io/resources/swe-book/html/ch03.html#understand_context">Chesterton's fence</a>.</p>
+<p>A well-written CL description will help those future engineers -- sometimes,
+including yourself!</p>
+<h2 id="first-line">First Line</h2>
+<p><a id="firstline"></a> <!-- Keep previous permalink to avoid breaking old links. --></p>
+<ul>
+<li>Short summary of what is being done.</li>
+<li>Complete sentence, written as though it was an order.</li>
+<li>Follow by empty line.</li>
+</ul>
+<p>The <strong>first line</strong> of a CL description should be a short summary of
+<em>specifically</em> <strong>what</strong> <em>is being done by the CL</em>, followed by a blank line.
+This is what appears in version control history summaries, so it should be
+informative enough that future code searchers don't have to read your CL or its
+whole description to understand what your CL actually <em>did</em> or how it differs
+from other CLs. That is, the first line should stand alone, allowing readers to
+skim through code history much faster.</p>
+<p>Try to keep your first line short, focused, and to the point. The clarity and
+utility to the reader should be the top concern.</p>
+<p>By tradition, the first line of a CL description is a complete sentence, written
+as though it were an order (an imperative sentence). For example, say
+\"<strong>Delete</strong> the FizzBuzz RPC and <strong>replace</strong> it with the new system." instead
+of \"<strong>Deleting</strong> the FizzBuzz RPC and <strong>replacing</strong> it with the new system."
+You don't have to write the rest of the description as an imperative sentence,
+though.</p>
+<h2 id="informative">Body is Informative</h2>
+<p>The <a href="#first-line">first line</a> should be a short, focused summary, while the rest
+of the description should fill in the details and include any supplemental
+information a reader needs to understand the changelist holistically. It might
+include a brief description of the problem that's being solved, and why this is
+the best approach. If there are any shortcomings to the approach, they should be
+mentioned. If relevant, include background information such as bug numbers,
+benchmark results, and links to design documents.</p>
+<p>If you include links to external resources consider that they may not be visible
+to future readers due to access restrictions or retention policies. Where
+possible include enough context for reviewers and future readers to understand
+the CL.</p>
+<p>Even small CLs deserve a little attention to detail. Put the CL in context.</p>
+<h2 id="bad">Bad CL Descriptions</h2>
+<p>"Fix bug" is an inadequate CL description. What bug? What did you do to fix it?
+Other similarly bad descriptions include:</p>
+<ul>
+<li>"Fix build."</li>
+<li>"Add patch."</li>
+<li>"Moving code from A to B."</li>
+<li>"Phase 1."</li>
+<li>"Add convenience functions."</li>
+<li>"kill weird URLs."</li>
+</ul>
+<p>Some of those are real CL descriptions. Although short, they do not provide
+enough useful information.</p>
+<h2 id="good">Good CL Descriptions</h2>
+<p>Here are some examples of good descriptions.</p>
+<h3 id="functionality-change">Functionality change</h3>
+<p>Example:</p>
+<blockquote>
+<p>RPC: Remove size limit on RPC server message freelist.</p>
+<p>Servers like FizzBuzz have very large messages and would benefit from reuse.
+Make the freelist larger, and add a goroutine that frees the freelist entries
+slowly over time, so that idle servers eventually release all freelist
+entries.</p>
+</blockquote>
+<p>The first few words describe what the CL actually does. The rest of the
+description talks about the problem being solved, why this is a good solution,
+and a bit more information about the specific implementation.</p>
+<h3 id="refactoring">Refactoring</h3>
+<p>Example:</p>
+<blockquote>
+<p>Construct a Task with a TimeKeeper to use its TimeStr and Now methods.</p>
+<p>Add a Now method to Task, so the borglet() getter method can be removed (which
+was only used by OOMCandidate to call borglet's Now method). This replaces the
+methods on Borglet that delegate to a TimeKeeper.</p>
+<p>Allowing Tasks to supply Now is a step toward eliminating the dependency on
+Borglet. Eventually, collaborators that depend on getting Now from the Task
+should be changed to use a TimeKeeper directly, but this has been an
+accommodation to refactoring in small steps.</p>
+<p>Continuing the long-range goal of refactoring the Borglet Hierarchy.</p>
+</blockquote>
+<p>The first line describes what the CL does and how this is a change from the
+past. The rest of the description talks about the specific implementation, the
+context of the CL, that the solution isn't ideal, and possible future direction.
+It also explains <em>why</em> this change is being made.</p>
+<h3>Small CL that needs some context</h3>
+<p>Example:</p>
+<blockquote>
+<p>Create a Python3 build rule for status.py.</p>
+<p>This allows consumers who are already using this as in Python3 to depend on a
+rule that is next to the original status build rule instead of somewhere in
+their own tree. It encourages new consumers to use Python3 if they can,
+instead of Python2, and significantly simplifies some automated build file
+refactoring tools being worked on currently.</p>
+</blockquote>
+<p>The first sentence describes what's actually being done. The rest of the
+description explains <em>why</em> the change is being made and gives the reviewer a lot
+of context.</p>
+<h2 id="tags">Using tags</h2>
+<p>Tags are manually entered labels that can be used to categorize CLs. These may
+be supported by tools or just used by team convention.</p>
+<p>For example:</p>
+<ul>
+<li>"[tag]"</li>
+<li>"[a longer tag]"</li>
+<li>"#tag"</li>
+<li>"tag:"</li>
+</ul>
+<p>Using tags is optional.</p>
+<p>When adding tags, consider whether they should be in the <a href="#informative">body</a> of
+the CL description or the <a href="#first-line">first line</a>. Limit the usage of tags in
+the first line, as this can obscure the content.</p>
+<p>Examples with and without tags:</p>
+<pre><code class="language-good">// Tags are okay in the first line if kept short.
+[banana] Peel the banana before eating.
+
+// Tags can be inlined in content.
+Peel the #banana before eating.
+
+// Tags are optional.
+Peel the banana before eating.
+
+// Multiple tags are acceptable if kept short.
+#banana #apple: Assemble a fruit basket.
+
+// Tags can go anywhere in the CL description.
+&gt; Assemble a fruit basket.
+&gt;
+&gt; #banana #apple
+</code></pre>
+<pre><code class="language-bad">// Too many tags (or tags that are too long) overwhelm the first line.
+//
+// Instead, consider whether the tags can be moved into the description body
+// and/or shortened.
+[banana peeler factory factory][apple picking service] Assemble a fruit basket.
+</code></pre>
+<h2>Generated CL descriptions</h2>
+<p>Some CLs are generated by tools. Whenever possible, their descriptions should
+also follow the advice here. That is, their first line should be short, focused,
+and stand alone, and the CL description body should include informative details
+that help reviewers and future code searchers understand each CL's effect.</p>
+<h2>Review the description before submitting the CL</h2>
+<p>CLs can undergo significant change during review. It can be worthwhile to review
+a CL description before submitting the CL, to ensure that the description still
+reflects what the CL does.</p>
+<p>Next: <a href="small-cls.md">Small CLs</a></p>
+</main>
+<footer class="site-footer">
+  <p>Source: google/eng-practices (review/developer/cl-descriptions.md), licensed under CC-BY 3.0.</p>
+</footer>
+</body>
+</html>

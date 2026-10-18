@@ -1,0 +1,91 @@
+{
+  "sqlite_vec": "v0.1.9",
+  "cpu": "Intel(R) Xeon(R) Processor @ 2.80GHz",
+  "cpu_count": 2,
+  "python": "3.13.16",
+  "k": 5,
+  "results": [
+    {
+      "n": 100000,
+      "dim": 384,
+      "queries": 100,
+      "float32": {
+        "insert_seconds": 1.9909471810001378,
+        "inserts_per_second": 50227.3495521693,
+        "file_mb": 158.347264,
+        "p50_ms": 86.63734100014153,
+        "p95_ms": 144.31186675010395,
+        "mean_ms": 92.17739389003327,
+        "recall_at_5": 1.0
+      },
+      "int8": {
+        "insert_seconds": 0.947043252000185,
+        "inserts_per_second": 105591.79825081576,
+        "file_mb": 40.886272,
+        "p50_ms": 56.67995600015274,
+        "p95_ms": 68.9692165001361,
+        "mean_ms": 59.27649839000878,
+        "recall_at_5": 0.97
+      },
+      "bit": {
+        "insert_seconds": 1.4926887069996155,
+        "inserts_per_second": 66993.2046320665,
+        "file_mb": 212.54144,
+        "p50_ms": 14.487439500044275,
+        "p95_ms": 22.62321354969572,
+        "mean_ms": 16.199267209972277,
+        "recall_at_5": 0.998,
+        "rescore_candidates": 100,
+        "hamming_p50_ms": 13.90259949994288,
+        "bit_vectors_mb": 4.8,
+        "note": "file_mb includes the float32 blobs used for re-scoring"
+      },
+      "float32_filtered": {
+        "p50_ms": 44.44188600018606,
+        "p95_ms": 59.47809000006145,
+        "mean_ms": 47.01868209001077
+      }
+    },
+    {
+      "n": 1000000,
+      "dim": 384,
+      "queries": 100,
+      "float32": {
+        "insert_seconds": 21.382255454999722,
+        "inserts_per_second": 46767.75104967583,
+        "file_mb": 1578.668032,
+        "p50_ms": 917.4680115002047,
+        "p95_ms": 1134.2051308501366,
+        "mean_ms": 939.2321713499952,
+        "recall_at_5": 1.0
+      },
+      "int8": {
+        "insert_seconds": 11.489748440000312,
+        "inserts_per_second": 87034.10742384999,
+        "file_mb": 408.076288,
+        "p50_ms": 603.8222610000048,
+        "p95_ms": 703.5157165498504,
+        "mean_ms": 613.0076803499787,
+        "recall_at_5": 0.9560000000000001
+      },
+      "bit": {
+        "insert_seconds": 16.352885367,
+        "inserts_per_second": 61151.28783437769,
+        "file_mb": 2125.14816,
+        "p50_ms": 147.47645950001242,
+        "p95_ms": 221.4195606998146,
+        "mean_ms": 159.40342492998752,
+        "recall_at_5": 1.0,
+        "rescore_candidates": 100,
+        "hamming_p50_ms": 142.03165300000364,
+        "bit_vectors_mb": 48.0,
+        "note": "file_mb includes the float32 blobs used for re-scoring"
+      },
+      "float32_filtered": {
+        "p50_ms": 482.910238499926,
+        "p95_ms": 552.7158633503632,
+        "mean_ms": 484.3651470899703
+      }
+    }
+  ]
+}

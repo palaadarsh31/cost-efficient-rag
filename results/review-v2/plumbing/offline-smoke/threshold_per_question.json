@@ -1,0 +1,152 @@
+[
+  {
+    "id": "q01",
+    "answerable": true,
+    "top_similarity": 0.3275
+  },
+  {
+    "id": "q02",
+    "answerable": true,
+    "top_similarity": 0.3748
+  },
+  {
+    "id": "q03",
+    "answerable": true,
+    "top_similarity": 0.1751
+  },
+  {
+    "id": "q04",
+    "answerable": true,
+    "top_similarity": 0.308
+  },
+  {
+    "id": "q05",
+    "answerable": true,
+    "top_similarity": 0.1459
+  },
+  {
+    "id": "q06",
+    "answerable": true,
+    "top_similarity": 0.3059
+  },
+  {
+    "id": "q07",
+    "answerable": true,
+    "top_similarity": 0.457
+  },
+  {
+    "id": "q08",
+    "answerable": true,
+    "top_similarity": 0.3631
+  },
+  {
+    "id": "q09",
+    "answerable": true,
+    "top_similarity": 0.2249
+  },
+  {
+    "id": "q10",
+    "answerable": true,
+    "top_similarity": 0.3702
+  },
+  {
+    "id": "q11",
+    "answerable": true,
+    "top_similarity": 0.4936
+  },
+  {
+    "id": "q12",
+    "answerable": true,
+    "top_similarity": 0.3053
+  },
+  {
+    "id": "q13",
+    "answerable": true,
+    "top_similarity": 0.2268
+  },
+  {
+    "id": "q14",
+    "answerable": true,
+    "top_similarity": 0.1531
+  },
+  {
+    "id": "q15",
+    "answerable": true,
+    "top_similarity": 0.2518
+  },
+  {
+    "id": "q16",
+    "answerable": true,
+    "top_similarity": 0.2319
+  },
+  {
+    "id": "q17",
+    "answerable": true,
+    "top_similarity": 0.2973
+  },
+  {
+    "id": "q18",
+    "answerable": true,
+    "top_similarity": 0.2181
+  },
+  {
+    "id": "q19",
+    "answerable": true,
+    "top_similarity": 0.3964
+  },
+  {
+    "id": "q20",
+    "answerable": true,
+    "top_similarity": 0.4796
+  },
+  {
+    "id": "q21",
+    "answerable": true,
+    "top_similarity": 0.2522
+  },
+  {
+    "id": "q22",
+    "answerable": true,
+    "top_similarity": 0.2187
+  },
+  {
+    "id": "q23",
+    "answerable": true,
+    "top_similarity": 0.4201
+  },
+  {
+    "id": "q24",
+    "answerable": true,
+    "top_similarity": 0.4516
+  },
+  {
+    "id": "q25",
+    "answerable": true,
+    "top_similarity": 0.6317
+  },
+  {
+    "id": "q26",
+    "answerable": false,
+    "top_similarity": 0.2256
+  },
+  {
+    "id": "q27",
+    "answerable": false,
+    "top_similarity": 0.1702
+  },
+  {
+    "id": "q28",
+    "answerable": false,
+    "top_similarity": 0.14
+  },
+  {
+    "id": "q29",
+    "answerable": false,
+    "top_similarity": 0.1778
+  },
+  {
+    "id": "q30",
+    "answerable": false,
+    "top_similarity": 0.1747
+  }
+]

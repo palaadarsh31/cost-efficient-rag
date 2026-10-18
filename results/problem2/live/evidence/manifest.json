@@ -1,0 +1,15 @@
+{
+  "generated_from_measured_live_results": true,
+  "redaction": "Any sk-ant-* token is replaced with [REDACTED] before rendering.",
+  "sources": {
+    "report.json": "f48c1bd5bac66beab80a51e1a36564710750e9cfbb49c8cfafc8f6de60b04fd6",
+    "per_case.json": "3d0367744f402ba6b6f7cb0aceac87b6c6fffa5d9969a10263c5a46346b4a32f",
+    "audit.jsonl": "7f3a7739cd8328574bedb506ad948336fa6539b75fd6f5bbdb5442e77354c794"
+  },
+  "images": {
+    "01_live_run_summary.png": "f1ca121e31eab6f0f0951391e62e43d006d7de0f833f1ef2c4587f16e753941d",
+    "02_actual_prompt_response.png": "489404fc23ff985333410923953c12925118d9709b5ec00533511ea3c67a3bed",
+    "03_order_swap_comparison.png": "de702844e6c1036c19496d541785607c5bb46d14cb9d6c3f312e080e22e91c57",
+    "04_adversarial_verdict.png": "47c7cef6ed79196a6128511e0e706a883f4d97822fbd916f5ea57c596c8f89b3"
+  }
+}

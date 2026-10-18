@@ -1,0 +1,1 @@
+OFFLINE TEST DOUBLE ONLY. This intentionally biased scripted fixture is NOT an LLM. Its scores and flip rates must NOT be submitted as measured judge-bias results.

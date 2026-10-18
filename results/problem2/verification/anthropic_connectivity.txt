@@ -1,0 +1,6 @@
+Checking access from THIS computer to api.anthropic.com (no API key used).
+DNS check passed.
+TCP/TLS check passed.
+Anthropic server responded with HTTP 405 (no credentials sent).
+Network access works. This check does NOT validate your API key or model access.
+Use a freshly rotated key through the judgepipe --prompt-for-key option for a live test.
